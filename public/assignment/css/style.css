@@ -5,3 +5,48 @@ input.form-control {
 body {
     padding-top: 36px;
 }
+
+.blueFont {
+    color: steelblue;
+}
+.headertoleft {
+    width: 20px;
+    margin: 20px;
+    left: 0px;
+    top: 2px;
+    position: fixed;
+}
+
+.headtext {
+    left: 60px;
+    top: 3.5px;
+    position: fixed;
+}
+
+.headertoright {
+    width: 20px;
+    margin: 20px;
+    right:1px;
+    top:2px;
+    position:fixed;
+}
+
+.space{
+    padding-top: 10px;
+}
+
+.container{
+    margin: 50px;
+    width:600px;
+
+}
+
+.row {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.col-6{
+    width:300px;
+    float:left;
+}
