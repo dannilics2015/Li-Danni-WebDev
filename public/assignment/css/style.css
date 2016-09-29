@@ -14,39 +14,56 @@ body {
     margin: 20px;
     left: 0px;
     top: 2px;
-    position: fixed;
+    position: absolute;
 }
 
 .headtext {
     left: 60px;
     top: 3.5px;
-    position: fixed;
+    position: absolute;
 }
 
 .headertoright {
     width: 20px;
     margin: 20px;
-    right:1px;
+    left: 800px;
     top:2px;
-    position:fixed;
+    position:absolute;
 }
 
 .space{
     padding-top: 10px;
 }
 
-.container{
-    margin: 50px;
-    width:600px;
 
-}
 
 .row {
     padding-top: 10px;
     padding-bottom: 10px;
+    margin-left: 20px;
 }
 
 .col-6{
     width:300px;
     float:left;
+}
+
+.widget-header {
+    top: 15px;
+    position: absolute;
+
+}
+
+.photowidth {
+    width:100%\9;
+}
+
+.header-style {
+    font-size: 200%;
+    text-align: left;
+    margin-top: 20px;
+    overflow: hidden;
+}
+.para-style {
+    overflow: hidden;
 }
