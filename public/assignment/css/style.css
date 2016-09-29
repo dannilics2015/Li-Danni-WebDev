@@ -6,6 +6,10 @@ body {
     padding-top: 36px;
 }
 
+.container {
+    width: 900px;
+    margin-top:50px
+}
 .blueFont {
     color: steelblue;
 }
