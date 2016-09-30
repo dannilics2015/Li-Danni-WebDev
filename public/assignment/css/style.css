@@ -10,6 +10,18 @@ body {
     width: 900px;
     margin-top:50px
 }
+
+.padding {
+    padding-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.paddingWheader {
+    padding-top: 35px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
 .blueFont {
     color: steelblue;
 }
@@ -41,17 +53,38 @@ body {
 
 
 
-.row {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    margin-left: 20px;
+/*.row {*/
+    /*padding-top: 10px;*/
+    /*padding-bottom: 10px;*/
+    /*margin-left: 20px;*/
+    /*position:relative;*/
+/*}*/
+
+/*.col-6{*/
+    /*width:300px;*/
+    /*float:left;*/
+    /*position:relative;*/
+/*}*/
+
+.listConf {
+    display: inline-block;
+    min-width: 10px;
+    padding: 3px 7px;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+
 }
 
-.col-6{
-    width:300px;
-    float:left;
+.list-group-item {
+    border: hidden;
 }
 
+.list-group {
+    margin: 5px;
+}
+/* border: 1px solid #ddd; */
 .widget-header {
     top: 15px;
     position: absolute;

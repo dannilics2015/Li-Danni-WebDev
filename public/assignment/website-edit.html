@@ -7,51 +7,44 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link href="css/style.css" rel="stylesheet"/>
 </head>
-
-
 <body>
 
-<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand headtext" href="website-list.html">
-                Edit Website
-            </a>
-            <a href="website-list.html" class="navbar-link">
-                <span class="glyphicon glyphicon-ok headertoleft">
-                </span>
-            </a>
-            <a href="website-new.html" class="navbar-link">
-                <span class="glyphicon glyphicon-plus headertoright">
-                </span>
-            </a>
+<div class="container-fluid">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <p class="navbar-text pull-right"><a href="website-list.html" class="navbar-link"><span class="glyphicon glyphicon-ok"></span></a></p>
+            <p class="navbar-text pull-left"><a href="website-list.html" class="navbar-link"><span class="glyphicon glyphicon-arrow-left"></span></a></p>
+            <div class="navbar-header">
+                <a class="navbar-brand" href="page-list.html">Edit Website</a>
+            </div>
         </div>
+    </nav>
+
+    <div class="paddingWheader">
+        <form>
+            <form-group>
+                <label for="name">Website Name</label>
+                <input id = "name" type="text", class="form-control" placeholder="blogger"/>
+            </form-group>
+            <form-group>
+                <label for="description" class="space">Website Description</label>
+                <textarea id = "description" class="form-control" rows="8" placeholder="Description"></textarea>
+            </form-group>
+            <div class="space">
+                <a class="btn btn-danger btn-default btn-block" href="website-list.html">Delete</a>
+            </div>
+        </form>
     </div>
-</nav>
-
-
-
-
-<div class="container">
-    <label for="name">Website Name</label>
-    <input id = "name" type="text", class="form-control" placeholder="blogger"/>
-    <label for="description" class="space">Website Description</label>
-    <textarea id = "description" class="form-control" rows="8" placeholder="Description"></textarea>
-    <div>
-        <p class = space></p>
-    <a class="btn btn-danger btn-default btn-block" href="website-list.html">Delete</a>
-    </div>
+    
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container-fluid">
+            <div class="navbar-footer">
+                <p class="navbar-text pull-right">
+                    <a href="profile.html" class="navbar-link">
+                        <span class="glyphicon glyphicon-user"></span></a></p>
+            </div>
+        </div>
+    </nav>
 </div>
-
-
-<nav class="navbar navbar-default navbar-fixed-bottom">
-    <div class="container-fluid">
-        <div class="navbar-footer">
-            <p class="navbar-text pull-right">
-                <a href="profile.html" class="navbar-link">
-                    <span class="glyphicon glyphicon-user"></span></a></p>
-        </div>
-    </div>
-</nav>
 </body>
 </html>
