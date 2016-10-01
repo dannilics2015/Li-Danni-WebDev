@@ -11,30 +11,109 @@
 
 <body>
 
+<!--header-->
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-4 hidden-xs">
+                <p class="navbar-text pull-right"><a href="page-new.html" class="navbar-link"><span class="glyphicon glyphicon-plus"></span></a></p>
+                <p class="navbar-text pull-left"><a href="website-list.html" class="navbar-link"><span class="glyphicon glyphicon-arrow-left"></span></a></p>
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="page-list.html">Pages</a>
+                </div>
+            </div>
 
-        <p class="navbar-text pull-right"><a href="widget-new.html" class="navbar-link"><span class="glyphicon glyphicon-ok"></span></a></p>
-
-        <p class="navbar-text pull-left"><a href="widget-new.html" class="navbar-link"><span class="glyphicon glyphicon-arrow-left"></span></a></p>
-
-        <div class="navbar-header">
-            <a class="navbar-brand" href="widget-new.html">New Pages</a>
+            <div class="col-md-8 col-xs-12">
+                <p class="navbar-text pull-right"><a href="page-list.html" class="navbar-link"><span class="glyphicon glyphicon-ok"></span></a></p>
+                <p class="navbar-text pull-left visible-xs"><a href="page-list.html" class="navbar-link"><span class="glyphicon glyphicon-arrow-left"></span></a></p>
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="page-list.html">New Page</a>
+                </div>
+            </div>
         </div>
     </div>
 </nav>
 
 
+<!--content-->
+<div class="container-fluid paddingWheader">
+    <div class="row ">
+        <div class="col-sm-4 hidden-xs">
+            <div class="blueFont container-fluid">
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <div class="listConf pull-right">
+                            <a href="page-edit.html">
+                                <span class="glyphicon glyphicon-cog"></span></a>
+                        </div>
+                        Blog Post
+                    </li>
+                </ul>
+
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <div class="listConf pull-right">
+                            <a href="page-edit.html">
+                                <span class="glyphicon glyphicon-cog"></span></a>
+                        </div>
+                        Blogs
+                    </li>
+                </ul>
+
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <div class="listConf pull-right">
+                            <a href="page-edit.html">
+                                <span class="glyphicon glyphicon-cog"></span></a>
+                        </div>
+                        Home
+                    </li>
+                </ul>
+
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <div class="listConf pull-right">
+                            <a href="page-edit.html">
+                                <span class="glyphicon glyphicon-cog"></span></a>
+                        </div>
+                        About
+                    </li>
+                </ul>
+
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <div class="listConf pull-right">
+                            <a href="page-edit.html">
+                                <span class="glyphicon glyphicon-cog"></span></a>
+                        </div>
+                        Contact Us
+                    </li>
+                </ul>
+            </div>
+            </div>
 
 
-<div class="container">
-    <label for="name">Name</label>
-    <input id = "name" type="text" class="form-control" placeholder="Page Name"/>
-    <label for="title" class="space">Title</label>
-    <input id = "title" type="text" class="form-control" placeholder="Page Title"></div>
+<!--Portrait-->
+    <div class="col-md-8 col-xs-12">
+            <form>
+                <form-group>
+                    <label for="name">Name</label>
+                    <input id = "name" type="text", class="form-control" placeholder="Page Name"/>
+                </form-group>
+                <form-group>
+                    <label for="title" class="space">Page Title</label>
+                    <input id = "title" class="form-control" placeholder="Page Title">
+                </form-group>
+            </form>
+        </div>
+    </div>
+</div>
 </div>
 
 
+
+
+<!--footer-->
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
         <div class="navbar-footer">
@@ -44,7 +123,6 @@
         </div>
     </div>
 </nav>
-</div>
 
 </body>
 </html>

@@ -11,6 +11,13 @@ body {
     margin-top:50px
 }
 
+.container-fluid {
+    overflow: hidden;
+}
+
+.border-right {
+    border-right: 1px solid grey;
+}
 .padding {
     padding-top: 15px;
     padding-left: 15px;
@@ -51,7 +58,20 @@ body {
     padding-top: 10px;
 }
 
-
+/*@media (min-width: 768px) {*/
+    /*.dl-horizontal dt {*/
+        /*float: left;*/
+        /*width: 160px;*/
+        /*overflow: hidden;*/
+        /*clear: left;*/
+        /*text-align: right;*/
+        /*text-overflow: ellipsis;*/
+        /*white-space: nowrap;*/
+    /*}*/
+    /*.dl-horizontal dd {*/
+        /*margin-left: 180px;*/
+    /*}*/
+/*}*/
 
 /*.row {*/
     /*padding-top: 10px;*/
