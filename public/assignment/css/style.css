@@ -140,6 +140,10 @@ body {
     padding-right: 0px;;
 }
 
+.blue-icon {
+    color: #337ab7;
+}
+
 .relative-position {
     position: relative;
 }
