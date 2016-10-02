@@ -30,7 +30,7 @@ body {
     padding-right: 15px;
 }
 .blueFont {
-    color: steelblue;
+    color: #337ab7;
 }
 .headertoleft {
     width: 20px;
@@ -58,34 +58,6 @@ body {
     padding-top: 10px;
 }
 
-/*@media (min-width: 768px) {*/
-    /*.dl-horizontal dt {*/
-        /*float: left;*/
-        /*width: 160px;*/
-        /*overflow: hidden;*/
-        /*clear: left;*/
-        /*text-align: right;*/
-        /*text-overflow: ellipsis;*/
-        /*white-space: nowrap;*/
-    /*}*/
-    /*.dl-horizontal dd {*/
-        /*margin-left: 180px;*/
-    /*}*/
-/*}*/
-
-/*.row {*/
-    /*padding-top: 10px;*/
-    /*padding-bottom: 10px;*/
-    /*margin-left: 20px;*/
-    /*position:relative;*/
-/*}*/
-
-/*.col-6{*/
-    /*width:300px;*/
-    /*float:left;*/
-    /*position:relative;*/
-/*}*/
-
 .listConf {
     display: inline-block;
     min-width: 10px;
@@ -94,7 +66,6 @@ body {
     text-align: center;
     white-space: nowrap;
     vertical-align: middle;
-
 }
 
 .list-group-item {
