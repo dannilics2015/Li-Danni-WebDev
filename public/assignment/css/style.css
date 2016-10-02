@@ -124,3 +124,33 @@ body {
 .para-style {
     overflow: hidden;
 }
+
+.verticle-line {
+    width: 1px;
+    background-color: grey;
+    left: 33%;
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    bottom: 0;
+}
+
+.icon{
+    padding-left: 3px;
+    padding-right: 0px;;
+}
+
+.relative-position {
+    position: relative;
+}
+
+.absolute-position {
+    position: absolute;
+}
+
+.icon-on-image {
+    top: 0px;
+    right: 0px;
+    z-index: 100;
+    background-color: white;
+}
