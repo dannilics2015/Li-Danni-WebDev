@@ -16,7 +16,7 @@ body {
 }
 
 .border-right {
-    border-right: 1px solid grey;
+    border-right: 1px solid lightgrey;
 }
 .padding {
     padding-top: 15px;
