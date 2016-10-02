@@ -129,3 +129,7 @@ body {
     z-index: 100;
     background-color: white;
 }
+
+.navbar {
+    background-color: skyblue;
+}
