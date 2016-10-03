@@ -111,10 +111,6 @@ body {
     padding-right: 0px;;
 }
 
-.blue-icon {
-    color: #337ab7;
-}
-
 .relative-position {
     position: relative;
 }
@@ -132,4 +128,8 @@ body {
 
 .navbar {
     background-color: skyblue;
+}
+
+a:link{
+    text-decoration: none;
 }
