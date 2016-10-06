@@ -1,39 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Edit Page</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link href="css/style.css" rel="stylesheet"/>
-</head>
-<body>
+
+
 <!--header-->
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-4 hidden-xs">
-                <p class="navbar-text pull-right"><a href="page-new.html" class="navbar-link"><span class="glyphicon glyphicon-plus"></span></a></p>
-                <p class="navbar-text pull-left"><a href="page-list.html" class="navbar-link"><span class="glyphicon glyphicon-arrow-left"></span></a></p>
+                <p class="navbar-text pull-right"><a href="page-new.view.client.html" class="navbar-link"><span class="glyphicon glyphicon-plus"></span></a></p>
+                <p class="navbar-text pull-left"><a href="../website/website-list.view.client.html" class="navbar-link"><span class="glyphicon glyphicon-arrow-left"></span></a></p>
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="page-list.html">Pages</a>
+                    <a class="navbar-brand" href="page-list.view.client.html">Pages</a>
                 </div>
             </div>
 
             <div class="col-md-8 col-xs-12">
-                <p class="navbar-text pull-right"><a href="page-list.html" class="navbar-link"><span class="glyphicon glyphicon-ok"></span></a></p>
-                <p class="navbar-text pull-left visible-xs"><a href="page-list.html" class="navbar-link"><span class="glyphicon glyphicon-arrow-left"></span></a></p>
+                <p class="navbar-text pull-right"><a href="page-list.view.client.html" class="navbar-link"><span class="glyphicon glyphicon-ok"></span></a></p>
+                <p class="navbar-text pull-left visible-xs"><a href="page-list.view.client.html" class="navbar-link"><span class="glyphicon glyphicon-arrow-left"></span></a></p>
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="page-list.html">Edit Page</a>
+                    <a class="navbar-brand" href="page-list.view.client.html">New Page</a>
                 </div>
             </div>
         </div>
     </div>
 </nav>
+
 
 <!--content-->
 <div class="container-fluid paddingWheader">
@@ -43,7 +32,7 @@
                 <ul class="list-group">
                     <li class="list-group-item">
                         <div class="listConf pull-right">
-                            <a href="page-edit.html">
+                            <a href="page-edit.view.client.html">
                                 <span class="glyphicon glyphicon-cog"></span></a>
                         </div>
                         Blog Post
@@ -53,7 +42,7 @@
                 <ul class="list-group">
                     <li class="list-group-item">
                         <div class="listConf pull-right">
-                            <a href="page-edit.html">
+                            <a href="page-edit.view.client.html">
                                 <span class="glyphicon glyphicon-cog"></span></a>
                         </div>
                         Blogs
@@ -63,7 +52,7 @@
                 <ul class="list-group">
                     <li class="list-group-item">
                         <div class="listConf pull-right">
-                            <a href="page-edit.html">
+                            <a href="page-edit.view.client.html">
                                 <span class="glyphicon glyphicon-cog"></span></a>
                         </div>
                         Home
@@ -73,7 +62,7 @@
                 <ul class="list-group">
                     <li class="list-group-item">
                         <div class="listConf pull-right">
-                            <a href="page-edit.html">
+                            <a href="page-edit.view.client.html">
                                 <span class="glyphicon glyphicon-cog"></span></a>
                         </div>
                         About
@@ -83,32 +72,30 @@
                 <ul class="list-group">
                     <li class="list-group-item">
                         <div class="listConf pull-right">
-                            <a href="page-edit.html">
+                            <a href="page-edit.view.client.html">
                                 <span class="glyphicon glyphicon-cog"></span></a>
                         </div>
                         Contact Us
                     </li>
                 </ul>
             </div>
-        </div>
+            </div>
 
         <!--vertical divider-->
         <div class="verticle-line hidden-sm hidden-xs"></div>
-        <!--Portrait-->
-        <div class="col-md-8 col-xs-12">
+
+<!--Portrait-->
+    <div class="col-md-8 col-xs-12">
             <form>
                 <form-group>
                     <label for="name">Name</label>
-                    <input id = "name" type="text", class="form-control" placeholder="Blog Post"/>
+                    <input id = "name" type="text", class="form-control" placeholder="Page Name"/>
                 </form-group>
                 <form-group>
                     <label for="title" class="space">Page Title</label>
                     <input id = "title" class="form-control" placeholder="Page Title">
                 </form-group>
             </form>
-            <div class="space">
-                <a class="btn btn-danger btn-default btn-block" href="page-list.html">Delete</a>
-            </div>
         </div>
     </div>
 </div>
@@ -122,10 +109,9 @@
     <div class="container-fluid">
         <div class="navbar-footer">
             <p class="navbar-text pull-right">
-                <a href="profile.html" class="navbar-link">
+                <a href="../views/user/profile.view.client.html" class="navbar-link">
                     <span class="glyphicon glyphicon-user"></span></a></p>
         </div>
     </div>
 </nav>
-</body>
-</html>
+
