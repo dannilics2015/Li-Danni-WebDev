@@ -7,8 +7,7 @@
         .controller("LoginController", LoginController);
 
     function LoginController($scope) {
-         $scope.hello = "Helo from Login Controller";
-
+         $scope.hello = "Hello from Login Controller";
     }
 
 })();
