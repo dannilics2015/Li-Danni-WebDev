@@ -16,22 +16,22 @@
     <form>
         <div class="form-group">
             <label for="username">Username</label>
-            <input type="text" class="form-control" id="username" placeholder="winterbreak">
+            <input ng-model="model.user.username" type="text" class="form-control" id="username" placeholder="winterbreak">
         </div>
         <div class="form-group">
             <label for="email">Email address</label>
-            <input type="email" class="form-control" id="email" placeholder="winterbreak@fun.com">
+            <input ng-model="model.user.email" type="email" class="form-control" id="email" placeholder="winterbreak@fun.com">
         </div>
         <div class="form-group">
             <label for="first-name">First Name</label>
-            <input type="text" class="form-control" id="first-name" placeholder="Winter">
+            <input ng-model="model.user.firstname" type="text" class="form-control" id="first-name" placeholder="Winter">
         </div>
         <div class="form-group">
             <label for="last-name">Last Name</label>
-            <input type="text" class="form-control" id="last-name" placeholder="Break">
+            <input ng-model="model.user.lastname" type="text" class="form-control" id="last-name" placeholder="Break">
         </div>
     </form>
-    <a class="btn btn-success btn-block" href="#/website">Websites</a>
+    <a class="btn btn-success btn-block" href="#/user/{{model.user._id}}/website">Websites</a>
     <a class="btn btn-danger  btn-block" href="#/login">Logout</a>
 </div>
 

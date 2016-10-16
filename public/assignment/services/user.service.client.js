@@ -7,59 +7,72 @@
         .factory("UserService", UserService);
 
     function UserService() {
+
         var users = [
-            {_id: "123", username: "alice",    password: "alice",    firstName: "Alice",  lastName: "Wonder"  },
-            {_id: "234", username: "bob",      password: "bob",      firstName: "Bob",    lastName: "Marley"  },
-            {_id: "345", username: "charly",   password: "charly",   firstName: "Charly", lastName: "Garcia"  },
-            {_id: "456", username: "jannunzi", password: "jannunzi", firstName: "Jose",   lastName: "Annunzi" }
-        ]
+            {username: 'Green', password: 'Arrow', _id: 001, firstname: 'Green', lastname: 'Arrow', email: 'ga@mail.com'},
+            {username: 'Jessica', password: 'Jones', _id: 002, firstname: 'Jessica', lastname: 'Jones', email: 'jj@mail.com'},
+            {username: 'Dare', password: 'Devil', _id: 003, firstname: 'Dare', lastname: 'Devil', email: 'dd@mail.com'}
+        ];
+
         var api = {
-            "createUser"   : "createUser",
-            "findUserById" : "findUserById",
-            "findUserByUsername" : "findUserByUsername",
-            "findUserByCredentials" : "findUserByCredentials",
-            "updateUser" : "updateUser",
-            "deleteUser" : "deleteUser"
+            createUser   : createUser,
+            findUserById : findUserById,
+            findUserByUsername : findUserByUsername,
+            findUserByCredentials : findUserByCredentials,
+            updateUser : updateUser,
+            deleteUser : deleteUser
     };
         return api;
 
         function createUser(user) {
             var last_user_id = users[user.length-1]._id;
-            last_user_id.toString.
-            user["_id"] = last_user_id + 1 ;
+            user._id = last_user_id + 1 ;
             users.push(user);
+            console.log("create user successfully");
         }
 
-        function findUserById(userid) {
+        function findUserById(userId) {
             for(var i=0; i<users.length; i++){
-                if(users[i]._id == userid){
+                if(users[i]._id == userId){
                     return users[i];
                 }
             }
             return null;
         }
 
-        function findUserByCredentials(username, password, callback){
-            for(var i=0; i<users.length; i++){
-                if(users[i].username == username && users[i].password==password){
-                    callback(users[i]);
-                    break;
+        function findUserByUsername(username) {
+            for (var i in users) {
+                if(users[i].username === username) {
+                    return users[i];
+                }
+            }
+            return null;
+        }
+
+        function findUserByCredentials(username, password){
+            for(var i in users){
+                if(users[i].username === username && users[i].password === password){
+                    return users[i];
+                }
+            }
+            return null;
+        }
+
+        function updateUser(userId, user) {
+            for (var i=0; i < users.length; i++) {
+                if (users[i]._id == userid) {
+                    users[i]._id = userid;
+                    users[i].username = user.username;
+                    users[i].email = user.email;
+                    users[i].firstname = user.firstname;
+                    user[i].lastname = user.lastname;
                 }
             }
         }
 
-        function updateUser(userid, user) {
+        function deleteUser(userId) {
             for (var i=0; i < users.length; i++) {
-                if (user[i]._id == userid) {
-                    user[i]._id = userid;
-                    user[i].username = user.username;
-                }
-            }
-        }
-
-        function deleteUser(userid) {
-            for (var i=0; i < users.length; i++) {
-                if (user[i]._id == userid) {
+                if (users[i]._id == userId) {
                     users.splice(i, 1);
                 }
             }

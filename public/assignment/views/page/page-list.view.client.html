@@ -1,4 +1,4 @@
-
+<!--header-->
 <div class="container-fluid paddingWheader">
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
@@ -10,65 +10,28 @@
         </div>
     </nav>
 
+    <!--content-->
     <div class="blueFont">
         <ul class="list-group">
-            <li class="list-group-item">
+            <li ng-repeat="page in model.pages" class="list-group-item">
                 <div class="listConf pull-right">
-                    <a href="page-edit.view.client.html">
+                    <a href="#/page/{{model.page._id}}">
                         <span class="glyphicon glyphicon-cog"></span></a>
                 </div>
-                <a href="../widget/widget-list.view.client.html">Blog Post</a>
-            </li>
-        </ul>
-
-        <ul class="list-group">
-            <li class="list-group-item">
-                <div class="listConf pull-right">
-                    <a href="page-edit.view.client.html">
-                        <span class="glyphicon glyphicon-cog"></span></a>
-                </div>
-                <a href="../widget/widget-list.view.client.html">Blogs</a>
-            </li>
-        </ul>
-
-        <ul class="list-group">
-            <li class="list-group-item">
-                <div class="listConf pull-right">
-                    <a href="page-edit.view.client.html">
-                        <span class="glyphicon glyphicon-cog"></span></a>
-                </div>
-                <a href="../widget/widget-list.view.client.html">Home</a>
-            </li>
-        </ul>
-
-        <ul class="list-group">
-            <li class="list-group-item">
-                <div class="listConf pull-right">
-                    <a href="page-edit.view.client.html">
-                        <span class="glyphicon glyphicon-cog"></span></a>
-                </div>
-                <a href="../widget/widget-list.view.client.html">About</a>
-            </li>
-        </ul>
-
-        <ul class="list-group">
-            <li class="list-group-item">
-                <div class="listConf pull-right">
-                    <a href="page-edit.view.client.html">
-                        <span class="glyphicon glyphicon-cog"></span></a>
-                </div>
-                <a href="../widget/widget-list.view.client.html">Contact Us</a>
+                <a href="../widget/widget-list.view.client.html">{{page.name}}</a>
             </li>
         </ul>
     </div>
-</div>
 
-<nav class="navbar navbar-default navbar-fixed-bottom">
-    <div class="container-fluid">
-        <div class="navbar-footer">
-            <p class="navbar-text pull-right">
-                <a href="../views/user/profile.view.client.html" class="navbar-link">
-                    <span class="glyphicon glyphicon-user"></span></a></p>
+
+    <!--footer-->
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container-fluid">
+            <div class="navbar-footer">
+                <p class="navbar-text pull-right">
+                    <a href="../views/user/profile.view.client.html" class="navbar-link">
+                        <span class="glyphicon glyphicon-user"></span></a></p>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
+</div>

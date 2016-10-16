@@ -1,4 +1,4 @@
-
+<!--header-->
 <div class="container-fluid">
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
@@ -10,56 +10,23 @@
         </div>
     </nav>
 
+    <!--content-->
     <div class="paddingWheader blueFont container-fluid">
         <ul class="list-group">
-            <li class="list-group-item">
+            <li ng-repeat="website in model.websites" class="list-group-item">
                 <div class="listConf pull-right">
-                    <a href="#/website/edit">
+                    <a href="#/website/{{model.website._id}}">
                         <span class="glyphicon glyphicon-cog"></span></a>
                 </div>
-                <a href="#/page/list">Address Book App</a>
+                <a href="#/page/list/{{website._id}}/page">
+                   {{website.name}}
+                </a>
             </li>
         </ul>
     </div>
 
 
-    <div class="blueFont container-fluid">
-        <ul class="list-group">
-            <li class="list-group-item">
-                <div class="listConf pull-right">
-                    <a href="#/website/edit">
-                        <span class="glyphicon glyphicon-cog"></span></a>
-                </div>
-                <a href="#/page/list">Blogger</a>
-            </li>
-        </ul>
-    </div>
-
-    <div class="blueFont container-fluid">
-        <ul class="list-group">
-            <li class="list-group-item">
-                <div class="listConf pull-right">
-                    <a href="#/website/edit">
-                        <span class="glyphicon glyphicon-cog"></span></a>
-                </div>
-                <a href="#/page/list">Blogging App</a>
-            </li>
-        </ul>
-    </div>
-
-    <div class="blueFont container-fluid">
-        <ul class="list-group">
-            <li class="list-group-item">
-                <div class="listConf pull-right">
-                    <a href="#/website/edit">
-                        <span class="glyphicon glyphicon-cog"></span></a>
-                </div>
-                <a href="#/page/list">Script Testing App</a>
-            </li>
-        </ul>
-    </div>
-
-
+    <!--footer-->
     <nav class="navbar navbar-default navbar-fixed-bottom">
         <div class="container-fluid">
             <div class="navbar-footer">

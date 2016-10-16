@@ -9,34 +9,39 @@
 
     function WebsiteService(){
         var websites = [
-            { "_id": "123", "name": "Facebook",    "developerId": "456" },
-            { "_id": "234", "name": "Tweeter",     "developerId": "456" },
-            { "_id": "456", "name": "Gizmodo",     "developerId": "456" },
-            { "_id": "567", "name": "Tic Tac Toe", "developerId": "123" },
-            { "_id": "678", "name": "Checkers",    "developerId": "123" },
-            { "_id": "789", "name": "Chess",       "developerId": "234" }
+            { "_id": "100", "name": "Facebook",    "developerId": "001", "description": "a social networking website"},
+            { "_id": "101", "name": "Tweeter",     "developerId": "001", "description": "popluar platform to trend hot topics"},
+            { "_id": "102", "name": "Gizmodo",     "developerId": "002", "description": "a design technology and science fiction website"},
+            { "_id": "103", "name": "Tic Tac Toe", "developerId": "002", "description": "a paper-and-pencil game for two players" },
+            { "_id": "104", "name": "Checkers",    "developerId": "003", "description": "a strategy board games for two players" },
+            { "_id": "105", "name": "Chess",       "developerId": "003", "description": "a strategy board games for two players" }
         ];
 
         var api = {
-            "createWebsite" : "createWebsite",
-            "findWebsitesByUser" : "findWebsitesByUser",
-            "findWebsiteById" : "findWebsiteById",
-            "updateWebsite" : "updateWebsite",
-            "deleteWebsite": "deleteWebsite"
+            createWebsite : createWebsite,
+            findWebsitesByUser : findWebsitesByUser,
+            findWebsiteById : findWebsiteById,
+            updateWebsite : updateWebsite,
+            deleteWebsite: deleteWebsite
         };
         return api;
 
 
-        function createWebsite(website){}
+        function createWebsite(website){
+            var last_website_id = websites[websites.length-1]._id;
+            last_website_id.toString.
+                website["_id"] = last_website_id + 1 ;
+            websites.push(website);
+        }
 
         function findWebsitesByUser(userId){
-            var user_webs = [];
+            var user_websites = [];
             for(var i=0; i<websites.length; i++){
                 if(websites[i].developerId == userId){
-                    user_webs.push(websites[i]);
+                    user_websites.push(websites[i]);
                 }
             }
-            return user_webs;
+            return user_websites;
         }
 
         function findWebsiteById(websiteId){

@@ -86,11 +86,11 @@
             <form>
                 <form-group>
                     <label for="name">Name</label>
-                    <input id = "name" type="text", class="form-control" placeholder="Blog Post"/>
+                    <input ng-model="model.website.name" id = "name" type="text", class="form-control" placeholder="Blog Post"/>
                 </form-group>
                 <form-group>
                     <label for="title" class="space">Page Title</label>
-                    <input id = "title" class="form-control" placeholder="Page Title">
+                    <input ng-model="model.page.name" id = "title" class="form-control" placeholder="Page Title">
                 </form-group>
             </form>
             <div class="space">
