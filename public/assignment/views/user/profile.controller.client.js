@@ -10,11 +10,20 @@
         var vm = this;
         var userId = parseInt($routeParams.uid);
         vm.uid = userId;
+        vm.updateUser = updateUser;
 
-        var user = UserService.findUserById(userId);
+        function init() {
+            var user = UserService.findUserById(userId);
 
-        if (user != null) {
-            vm.user = user;
+            if (user != null) {
+                vm.user = user;
+            }
+        }
+        init();
+
+
+        function updateUser(userId, user) {
+            UserService.updateUser(userId, user);
         }
     }
 })();

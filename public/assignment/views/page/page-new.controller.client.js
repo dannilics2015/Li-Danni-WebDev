@@ -11,6 +11,7 @@
         var websiteId =parseInt($routeParams.wid);
         var userId = parseInt($routeParams.uid);
         vm.wid = websiteId;
+        vm.uid = userId;
 
         vm.createPage = createPage;
 

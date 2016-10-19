@@ -12,14 +12,14 @@
 <!--content-->
 <div class="container-fluid paddingWheader">
     <div class="list-group">
-        <div class="list-group-item"><a href="#/widget/heading">Header</a></div>
+        <div class="list-group-item"><a ng-click="model.createWidget(model.pid, {widgetType: 'HEADER'})">Header</a></div>
         <div class="list-group-item"><a href="#">Label</a></div>
-        <div class="list-group-item"><a href="#">HTML</a></div>
+        <div class="list-group-item"><a ng-click="model.createWidget(model.pid, {widgetType: 'HTML'})">HTML</a></div>
         <div class="list-group-item"><a href="#">Text Input</a></div>
         <div class="list-group-item"><a href="#">Link</a></div>
         <div class="list-group-item"><a href="#">Button</a></div>
-        <div class="list-group-item"><a href="#/widget/image">Image</a></div>
-        <div class="list-group-item"><a href="#/widget/youtube">YouTube</a></div>
+        <div class="list-group-item"><a ng-click="model.createWidget(model.pid, {widgetType: 'IMAGE'})">Image</a></div>
+        <div class="list-group-item"><a ng-click="model.createWidget(model.pid, {widgetType: 'YOUTUBE'})">YouTube</a></div>
         <div class="list-group-item"><a href="#">Data Table</a></div>
         <div class="list-group-item"><a href="#">Repeater</a></div>
     </div>

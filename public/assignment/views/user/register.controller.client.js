@@ -6,12 +6,18 @@
         .module("WebAppMaker")
         .controller("RegisterController", RegisterController);
 
-    function RegisterController($routeParams, UserService) {
+    function RegisterController($routeParams, UserService, $location) {
         var vm = this;
         vm.createUser = createUser;
 
         function createUser(user) {
-            UserService.createUser(user);
+            if (vm.password === vm.passwordVerify) {
+                var newUser = UserService.createUser(user);
+                $location.url("/user/" + newUser._id);
+            }
+            else {
+                vm.error = "Password doesn't match";
+            }
         }
     }
 })();

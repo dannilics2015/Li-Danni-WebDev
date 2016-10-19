@@ -3,10 +3,10 @@
 <!--header-->
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
-        <p class="navbar-text pull-right"><a href="#/widget/chooser" class="navbar-link"><span class="glyphicon glyphicon-plus"></span></a></p>
-        <p class="navbar-text pull-left"><a href="#/page/list" class="navbar-link"><span class="glyphicon glyphicon-arrow-left"></span></a></p>
+        <p class="navbar-text pull-right"><a href="#/user/{{model.uid}}/website/{{model.wid}}/page/{{model.pid}}/widget/new" class="navbar-link"><span class="glyphicon glyphicon-plus"></span></a></p>
+        <p class="navbar-text pull-left"><a href="#/user/{{model.uid}}/website/{{model.wid}}/page" class="navbar-link"><span class="glyphicon glyphicon-arrow-left"></span></a></p>
         <div class="navbar-header">
-            <a class="navbar-brand" href="#">Choose Widget</a>
+            <a class="navbar-brand" href="#/user/{{model.uid}}/website/{{model.wid}}/page/{{model.pid}}/widget/{{widget._id}}">Choose Widget</a>
         </div>
     </div>
 </nav>
@@ -34,7 +34,7 @@
                         <a href="#/user/{{model.uid}}/website/{{model.wid}}/page/{{model.pid}}/widget/{{widget._id}}"><span class="glyphicon glyphicon-cog"></span></a>
                         <span class="glyphicon glyphicon-align-justify"></span>
                     </div>
-                    <div>image</div>
+                    <div>{{widget.text}}</div>
                     <img class="image-responsive" ng-src="{{model.checkSafeImageUrl(widget.url)}}"/>
                 </div>
 
@@ -51,8 +51,8 @@
                         <span class="glyphicon glyphicon-align-justify"></span>
                     </div>
                     <iframe width="560" height="315" ng-src="{{model.checkSafeYouTubeUrl(widget.url)}}" frameborder="0" allowfullscreen></iframe>
-                    youtube
-                </div>
+                    <p>{{widget.text}}
+                </p>
             </div>
         </div>
     </div>
@@ -128,7 +128,7 @@
                 <span class="glyphicon glyphicon-eye-open"></span>
             </p>
             <p class="navbar-text pull-right">
-                <a href="#/profile" class="navbar-link">
+                <a href="#/user/{{model.uid}}" class="navbar-link">
                     <span class="glyphicon glyphicon-user"></span></a></p>
         </div>
     </div>

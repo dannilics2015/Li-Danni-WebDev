@@ -9,9 +9,9 @@
     function UserService() {
 
         var users = [
-            {username: 'Green', password: 'Arrow', _id: 123, firstname: 'Green', lastname: 'Arrow', email: 'ga@mail.com'},
-            {username: 'Jessica', password: 'Jones', _id: 234, firstname: 'Jessica', lastname: 'Jones', email: 'jj@mail.com'},
-            {username: 'Dare', password: 'Devil', _id: 345, firstname: 'Dare', lastname: 'Devil', email: 'dd@mail.com'}
+            {username: 'Green', password: 'Arrow', _id: "123", firstname: 'Green', lastname: 'Arrow', email: 'ga@mail.com'},
+            {username: 'Jessica', password: 'Jones', _id: "234", firstname: 'Jessica', lastname: 'Jones', email: 'jj@mail.com'},
+            {username: 'Dare', password: 'Devil', _id: "345", firstname: 'Dare', lastname: 'Devil', email: 'dd@mail.com'}
         ];
 
         var api = {
@@ -25,9 +25,13 @@
         return api;
 
         function createUser(user) {
-            var last_user_id = users[user.length-1]._id;
+            var last_user_id = users[users.length-1]._id;
             user._id = last_user_id + 1 ;
+            user.firstname = 'N/A';
+            user.email = 'N/A';
+            user.lastname = 'N/A'
             users.push(user);
+            return user;
         }
 
         function findUserById(userId) {
@@ -59,12 +63,11 @@
 
         function updateUser(userId, user) {
             for (var i=0; i < users.length; i++) {
-                if (users[i]._id == userid) {
-                    users[i]._id = userid;
+                if (users[i]._id == userId) {
                     users[i].username = user.username;
                     users[i].email = user.email;
                     users[i].firstname = user.firstname;
-                    user[i].lastname = user.lastname;
+                    users[i].lastname = user.lastname;
                 }
             }
         }

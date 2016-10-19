@@ -1,28 +1,28 @@
 
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
-        <p class="navbar-text pull-right"><a href="#/widget/list" class="navbar-link"><span class="glyphicon glyphicon-ok"></span></a></p>
-        <p class="navbar-text pull-left"><a href="#/widget/list" class="navbar-link"><span class="glyphicon glyphicon-arrow-left"></span></a></p>
+        <p class="navbar-text pull-right"><a ng-click="model.updateWidget(model.widget._id, {text: model.widget.text, url: model.widget.url, width: model.widget.percentage})" class="navbar-link"><span class="glyphicon glyphicon-ok"></span></a></p>
+        <p class="navbar-text pull-left"><a href="#/user/{{model.uid}}/website/{{model.wid}}/page/{{model.pid}}/widget"><span class="glyphicon glyphicon-arrow-left"></span></a></p>
         <div class="navbar-header">
-            <a class="navbar-brand" href="#">Edit Widget</a>
+            <a class="navbar-brand">Edit Widget</a>
         </div>
     </div>
 </nav>
 
 <div class="container-fluid paddingWheader">
     <label for="name">Name</label>
-    <input id = "name" type="text" class="form-control" placeholder="name"/>
+    <input ng-model="model.widget.name" id = "name" type="text" class="form-control" placeholder="name"/>
     <label for="text">Text</label>
-    <input id = "text" type="text" class="form-control" placeholder="OLYMPIA, Wash. (AP) - The Washington State Patrol has disclosed numerous">
+    <input ng-model="model.widget.text" id = "text" type="text" class="form-control" placeholder="OLYMPIA, Wash. (AP) - The Washington State Patrol has disclosed numerous">
     <label for="url">URL</label>
-    <input id = "url" type="basic-url" class="form-control" placeholder="http://www/youtube.com"/>
+    <input ng-model="model.widget.url" id = "url" type="basic-url" class="form-control" placeholder="http://www/youtube.com"/>
     <label for="width">Width</label>
-    <input id = "width" type="percentage" class="form-control" placeholder="100%"/>
+    <input ng-model="model.widget.percentage" id = "width" type="percentage" class="form-control" placeholder="100%"/>
     <label for="upload">URL</label>
-    <input id = "upload" type="file" class="form-control" placeholder="No File Choosen"/>
+    <input ng-model="model.widget.upload" id = "upload" type="file" class="form-control" placeholder="No File Choosen"/>
     <div>
-        <a class="btn btn-success btn-default btn-block space" href="#">Upload Image</a>
-        <a class="btn btn-danger btn-default btn-block space" href="#/widget/list">Delete</a>
+        <a ng-click="model.updateWidget(model.widget._id, {text: model.widget.text, url: model.widget.upload, width: model.widget.percentage})" class="btn btn-success btn-default btn-block space">Upload Image</a>
+        <a ng-click="model.deleteWidget(model.widget._id)" class="btn btn-danger btn-default btn-block space">Delete</a>
     </div>
 </div>
 
@@ -30,7 +30,7 @@
     <div class="container-fluid">
         <div class="navbar-footer">
             <p class="navbar-text pull-right">
-                <a href="#/profile" class="navbar-link">
+                <a href="#/user/{{model.uid}}" class="navbar-link">
                     <span class="glyphicon glyphicon-user"></span></a></p>
         </div>
     </div>
