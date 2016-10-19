@@ -1,5 +1,6 @@
 
 <!--header-->
+<!--landscape-->
 <<nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid row">
         <div class="col-xs-4 hidden-xs">
@@ -9,8 +10,11 @@
                 <a class="navbar-brand" href="#/user/{{model.uid}}/website">Websites</a>
             </div>
         </div>
+        <!--portrait-->
         <div class="col-md-8 col-xs-12">
-            <p class="navbar-text pull-right"><a href="#/user/{{model.uid}}/website" class="navbar-link"><span class="glyphicon glyphicon-ok"></span></a></p>
+            <p class="navbar-text pull-right">
+                <a ng-click="model.updateWebsite('100', {_id: model.wid, name: model.website.name, developerId: model.uid, description: model.website.description})" class="navbar-link">
+                    <span class="glyphicon glyphicon-ok"></span></a></p>
             <p class="navbar-text pull-left"><a href="#/user/{{model.uid}}/website" class="navbar-link"><span class="glyphicon glyphicon-arrow-left visible-xs"></span></a></p>
             <div class="navbar-header">
                 <a class="navbar-brand" href="#/user/{{model.uid}}/website/new">Edit Website</a>
@@ -22,9 +26,10 @@
 
 
 <!--content-->
+<!--landscape-->
 <div class="container-fluid">
-    <div class="row ">
-        <div class="col-sm-4 hidden-xs paddingWheader">
+    <div class="row">
+        <div class="col-xs-4 hidden-xs">
             <div class="blueFont container-fluid">
                 <ul class="list-group">
                     <li ng-repeat="website in model.websites" class="list-group-item">
@@ -39,7 +44,8 @@
                 </ul>
             </div>
             </div>
-        <!--vertical divider-->
+
+        <!--portrait-->
         <div class="verticle-line hidden-sm hidden-xs"></div>
         <div class="col-md-8 col-xs-12">
             <div class="paddingWheader container-fluid">
@@ -53,7 +59,7 @@
                         <textarea ng-model="model.website.description" id = "description" class="form-control" rows="8" placeholder="Description"></textarea>
                     </form-group>
                     <div class="space">
-                        <a class="btn btn-danger btn-default btn-block" href="#/website/list">Delete</a>
+                        <a ng-click="model.deleteWebsite(model.website._id)" class="btn btn-danger btn-default btn-block" href="#/user/{{model.uid}}/website">Delete</a>
                     </div>
                 </form>
             </div>
@@ -69,7 +75,7 @@
     <div class="container-fluid">
         <div class="navbar-footer">
             <p class="navbar-text pull-right">
-                <a href="#/profile" class="navbar-link">
+                <a href="#/user/{{model.uid}}" class="navbar-link">
                     <span class="glyphicon glyphicon-user"></span></a></p>
         </div>
     </div>

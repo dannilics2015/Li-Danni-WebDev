@@ -6,11 +6,18 @@
         .module("WebAppMaker")
         .controller("PageNewController", PageNewController);
 
-    function PageNewController($routeParams, PageService) {
+    function PageNewController($routeParams, PageService, $location) {
         var vm = this;
-        // var websiteId =parseInt($routeParams.uid);
+        var websiteId =parseInt($routeParams.wid);
+        var userId = parseInt($routeParams.uid);
+        vm.wid = websiteId;
 
-        var createPage = PageService.createPage()
+        vm.createPage = createPage;
+
+        function createPage(websiteId, page) {
+            PageService.createPage(websiteId, page);
+            $location.url("/user/" + userId + "/website/" + websiteId + "/page");
+        }
 
     }
 })();

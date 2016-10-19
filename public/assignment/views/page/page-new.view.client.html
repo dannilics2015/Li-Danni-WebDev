@@ -13,7 +13,8 @@
             </div>
 
             <div class="col-md-8 col-xs-12">
-                <p class="navbar-text pull-right"><a href="page-list.view.client.html" class="navbar-link"><span class="glyphicon glyphicon-ok"></span></a></p>
+                <p class="navbar-text pull-right">
+                    <a ng-click="model.createPage(model.wid, {_id: '0', name: model.page.name, websiteId: model.wid})" class="navbar-link"><span class="glyphicon glyphicon-ok"></span></a></p>
                 <p class="navbar-text pull-left visible-xs"><a href="page-list.view.client.html" class="navbar-link"><span class="glyphicon glyphicon-arrow-left"></span></a></p>
                 <div class="navbar-header">
                     <a class="navbar-brand" href="page-list.view.client.html">New Page</a>
@@ -89,11 +90,11 @@
             <form>
                 <form-group>
                     <label for="name">Name</label>
-                    <input id = "name" type="text", class="form-control" placeholder="Page Name"/>
+                    <input ng-model="model.page.name" id = "name" type="text", class="form-control" placeholder="Page Name"/>
                 </form-group>
                 <form-group>
                     <label for="title" class="space">Page Title</label>
-                    <input id = "title" class="form-control" placeholder="Page Title">
+                    <input ng-model="model.page.title" id = "title" class="form-control" placeholder="Page Title">
                 </form-group>
             </form>
         </div>
@@ -102,14 +103,12 @@
 </div>
 
 
-
-
 <!--footer-->
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
         <div class="navbar-footer">
             <p class="navbar-text pull-right">
-                <a href="../views/user/profile.view.client.html" class="navbar-link">
+                <a href="#/user/{{model.uid}}" class="navbar-link">
                     <span class="glyphicon glyphicon-user"></span></a></p>
         </div>
     </div>

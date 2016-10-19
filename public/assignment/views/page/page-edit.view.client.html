@@ -12,8 +12,8 @@
             </div>
 
             <div class="col-md-8 col-xs-12">
-                <p class="navbar-text pull-right"><a href="page-list.view.client.html" class="navbar-link"><span class="glyphicon glyphicon-ok"></span></a></p>
-                <p class="navbar-text pull-left visible-xs"><a href="page-list.view.client.html" class="navbar-link"><span class="glyphicon glyphicon-arrow-left"></span></a></p>
+                <p class="navbar-text pull-right"><a ng-click="model.updatePage(model.pid, {_id: model.pid, name: model.page.name, websiteId: model.wid})" class="navbar-link"><span class="glyphicon glyphicon-ok"></span></a></p>
+                <p class="navbar-text pull-left visible-xs"><a href="#/user/{{model.uid}}/website/{{model.wid}}/page" class="navbar-link"><span class="glyphicon glyphicon-arrow-left"></span></a></p>
                 <div class="navbar-header">
                     <a class="navbar-brand" href="page-list.view.client.html">Edit Page</a>
                 </div>
@@ -86,15 +86,15 @@
             <form>
                 <form-group>
                     <label for="name">Name</label>
-                    <input ng-model="model.website.name" id = "name" type="text", class="form-control" placeholder="Blog Post"/>
+                    <input ng-model="model.page.name" id = "name" type="text", class="form-control" placeholder="Blog Post"/>
                 </form-group>
                 <form-group>
                     <label for="title" class="space">Page Title</label>
-                    <input ng-model="model.page.name" id = "title" class="form-control" placeholder="Page Title">
+                    <input ng-model="model.page.title" id = "title" class="form-control" placeholder="Page Title">
                 </form-group>
             </form>
             <div class="space">
-                <a class="btn btn-danger btn-default btn-block" href="page-list.view.client.html">Delete</a>
+                <a ng-click="model.deletePage(model.pid)" class="btn btn-danger btn-default btn-block" >Delete</a>
             </div>
         </div>
     </div>
@@ -109,7 +109,7 @@
     <div class="container-fluid">
         <div class="navbar-footer">
             <p class="navbar-text pull-right">
-                <a href="../views/user/profile.view.client.html" class="navbar-link">
+                <a href="#/user/{{model.uid}}" class="navbar-link">
                     <span class="glyphicon glyphicon-user"></span></a></p>
         </div>
     </div>

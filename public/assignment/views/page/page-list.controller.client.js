@@ -8,10 +8,14 @@
 
     function PageListController($routeParams, PageService) {
         var vm = this;
-        // var websiteId =parseInt($routeParams.uid);
+        var userId =parseInt($routeParams.uid);
+        vm.uid = userId;
 
-        var pages = PageService.findPageByWebsiteId(100);
+        var websiteId = parseInt($routeParams.wid);
+        vm.wid = websiteId;
 
+        var pages = PageService.findPageByWebsiteId(websiteId);
         vm.pages = pages;
+
     }
 })();

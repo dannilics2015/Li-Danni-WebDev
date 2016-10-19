@@ -6,14 +6,31 @@
         .module("WebAppMaker")
         .controller("PageEditController", PageEditController);
 
-    function PageEditController($routeParams, PageService) {
+    function PageEditController($routeParams, PageService, $location) {
         var vm = this;
+        var websiteId = parseInt($routeParams.wid);
+        vm.wid = websiteId;
 
-        var page = PageService.findPageById(321);
+        var userId = parseInt($routeParams.uid);
+        vm.uid = userId;
 
-        var updateThePage = PageService.updatePage(321, page)
+        var pageId = parseInt($routeParams.pid);
+        vm.pid = pageId;
 
+        var page = PageService.findPageById(pageId);
         vm.page = page;
-        vm.updateThePage = updateThePage;
+
+        vm.updatePage = updatePage;
+        vm.deletePage = deletePage;
+
+        function updatePage(pageId, page) {
+            PageService.updatePage(pageId, page);
+            $location.url("/user/" + userId + "/website/" + websiteId + "/page");
+        }
+
+        function deletePage(pageId) {
+            PageService.deletePage(pageId);
+            $location.url("/user/" + userId + "/website/" + websiteId + "/page");
+        }
     }
 })();

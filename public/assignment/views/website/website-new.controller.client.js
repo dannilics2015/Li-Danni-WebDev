@@ -6,17 +6,23 @@
         .module("WebAppMaker")
         .controller("WebsiteNewController", WebsiteNewController);
 
-    function WebsiteNewController($routeParams, WebsiteService) {
+    function WebsiteNewController($routeParams, WebsiteService, $location) {
         var vm = this;
 
         var userId =parseInt($routeParams.uid);
         vm.uid = userId;
 
 
-        // var createWebsite = createWebsite;
+        vm.createWebsite = createWebsite;
+
+        function createWebsite(userId, website) {
+            WebsiteService.createWebsite(userId, website);
+            $location.url("/user/" + userId + "/website");
+        }
+
         function init() {
             vm.websites = WebsiteService.findWebsitesByUser(userId);
-            // vm.createWebsite = WebsiteService.createWebsite();
+
         }
 
         init();
