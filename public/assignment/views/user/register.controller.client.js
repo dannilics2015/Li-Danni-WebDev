@@ -10,8 +10,8 @@
         var vm = this;
         vm.createUser = createUser;
 
-        function createUser() {
-            UserService.createUser;
+        function createUser(user) {
+            UserService.createUser(user);
         }
     }
 })();

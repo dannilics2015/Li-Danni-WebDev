@@ -15,72 +15,109 @@
 <div class="container-fluid padding">
     <div class="list-group">
         <div class="relative-position">
-            <div class="absolute-position icon-on-image">
-                <a href="#/widget/heading"><span class="glyphicon glyphicon-cog"></span></a>
-                <span class="glyphicon glyphicon-align-justify"></span>
-            </div>
-            <h1>News</h1>
-        </div>
+            <div ng-switch="widget.widgetType"
+                 ng-repeat="widget in model.widgets">
+                <div ng-switch="widget.size" ng-switch-when="HEADER">
+                    <div class="icon-on-image pull-right">
+                        <a href="#/user/{{model.uid}}/website/{{model.wid}}/page/{{model.pid}}/widget/{{widget._id}}"><span class="glyphicon glyphicon-cog"></span></a>
+                        <span class="glyphicon glyphicon-align-justify"></span>
+                    </div>
+                    <h1 ng-switch-when="1">{{widget.text}}</h1>
+                    <h2 ng-switch-when="2">{{widget.text}}</h2>
+                    <h3 ng-switch-when="3">{{widget.text}}</h3>
+                    <h4 ng-switch-when="4">{{widget.text}}</h4>
+                    <h5 ng-switch-when="5">{{widget.text}}</h5>
+                </div>
 
-        <div class="relative-position">
-            <div class="absolute-position icon-on-image">
-                <a href="#/widget/heading"><span class="glyphicon glyphicon-cog"></span></a>
-                <span class="glyphicon glyphicon-align-justify"></span>
-            </div>
-            <h2>Records: Over 30 Wash. cops misused databases to dig up personal info</h2>
-        </div>
+                <div ng-switch-when="IMAGE">
+                    <div class="icon-on-image pull-right">
+                        <a href="#/user/{{model.uid}}/website/{{model.wid}}/page/{{model.pid}}/widget/{{widget._id}}"><span class="glyphicon glyphicon-cog"></span></a>
+                        <span class="glyphicon glyphicon-align-justify"></span>
+                    </div>
+                    <div>image</div>
+                    <img class="image-responsive" ng-src="{{model.checkSafeImageUrl(widget.url)}}"/>
+                </div>
 
-        <div class="relative-position">
-            <img src="http://static-13.sinclairstoryline.com/resources/media/291002bc-afca-4d0e-83cf-7d468b2a53a1-large16x9_291002bcafca4d0e83cf7d468b2a53a1150209_super_evil_keyboard_660.jpg?1475071664985"
-                 class="img-responsive center-block photowidth">
-            <div class="absolute-position icon-on-image">
-                <a href="#/widget/image"><span class="glyphicon glyphicon-cog"></span></a>
-                <span class="glyphicon glyphicon-align-justify"></span>
+                <div ng-switch-when="HTML" ng-bind-html="model.checkSafeHtml(widget.text)">
+                    <div class="icon-on-image pull-right">
+                        <a href="#/user/{{model.uid}}/website/{{model.wid}}/page/{{model.pid}}/widget/{{widget._id}}"><span class="glyphicon glyphicon-cog"></span></a>
+                        <span class="glyphicon glyphicon-align-justify"></span>
+                    </div>
+                    {{widget.text}}
+                </div>
+                <div ng-switch-when="YOUTUBE">
+                    <div class="icon-on-image pull-right">
+                        <a href="#/user/{{model.uid}}/website/{{model.wid}}/page/{{model.pid}}/widget/{{widget._id}}"><span class="glyphicon glyphicon-cog"></span></a>
+                        <span class="glyphicon glyphicon-align-justify"></span>
+                    </div>
+                    <iframe width="560" height="315" ng-src="{{model.checkSafeYouTubeUrl(widget.url)}}" frameborder="0" allowfullscreen></iframe>
+                    youtube
+                </div>
             </div>
-        </div>
-
-        <div class="relative-position">
-            <div class="absolute-position icon-on-image space">
-                <a href="#/widget/heading"><span class="glyphicon glyphicon-cog"></span></a>
-                <span class="glyphicon glyphicon-align-justify"></span>
-            </div>
-            <p class="para-style space">OLYMPIA, Wash. (AP) - The Washington State Patrol has disclosed numerous instances in which officers were disciplined between 2013 and 2015 for misusing confidential law enforcement databases.
-                The Associated Press identified through a public records request more than 30 cases in which officers appeared to have either improperly sought information on other people or used databases for expressly personal purposes.
-            </p>
-        </div>
-
-        <div class="relative-position">
-            <div class="absolute-position icon-on-image">
-                <a href="#widget/heading"><span class="glyphicon glyphicon-cog"></span></a>
-                <span class="glyphicon glyphicon-align-justify"></span>
-            </div>
-            <h2>Britain's Got Talent: A Singing and Speaking Dog Wow the Judges</h2>
-        </div>
-
-        <div class="relative-position embed-responsive embed-responsive-4by3">
-            <div class="absolute-position icon-on-image">
-                <a href="#/widget/youtube"><span class="glyphicon glyphicon-cog"></span></a>
-                <span class="glyphicon glyphicon-align-justify"></span>
-            </div>
-            <iframe src="https://www.youtube.com/embed/1inR2b7PS5M?t=1m38s" frameborder="0" allowfullscreen>
-            </iframe>
-        </div>
-
-
-        <div class="relative-position">
-            <div class="absolute-position icon-on-image space">
-                <a href="#/widget/heading"><span class="glyphicon glyphicon-cog"></span></a>
-                <span class="glyphicon glyphicon-align-justify"></span>
-            </div>
-            <p class="space">Published on Apr 11, 2015. See more from Britain's Got Talent at <a href="http://itv.com/talent">http://itv.com/talent</a>
-                The Judges are left open-mouthed when Marc Métral introduces his talking dog Miss Wendy.
-                "Congratulations, in the nine years of doing this show, Simon has said he wanted a dog that could meow or sing, and you did both, incredible," says Amanda.
-                Simon is totally smitten!</p>
         </div>
     </div>
 </div>
 
 
+<!--<div class="relative-position">-->
+<!--<div class="absolute-position icon-on-image">-->
+<!--<a href="#/widget/heading"><span class="glyphicon glyphicon-cog"></span></a>-->
+<!--<span class="glyphicon glyphicon-align-justify"></span>-->
+<!--</div>-->
+<!--<h2>Records: Over 30 Wash. cops misused databases to dig up personal info</h2>-->
+<!--</div>-->
+
+<!--<div class="relative-position">-->
+<!--<img src="http://static-13.sinclairstoryline.com/resources/media/291002bc-afca-4d0e-83cf-7d468b2a53a1-large16x9_291002bcafca4d0e83cf7d468b2a53a1150209_super_evil_keyboard_660.jpg?1475071664985"-->
+<!--class="img-responsive center-block photowidth">-->
+<!--<div class="absolute-position icon-on-image">-->
+<!--<a href="#/widget/image"><span class="glyphicon glyphicon-cog"></span></a>-->
+<!--<span class="glyphicon glyphicon-align-justify"></span>-->
+<!--</div>-->
+<!--</div>-->
+
+<!--<div class="relative-position">-->
+<!--<div class="absolute-position icon-on-image space">-->
+<!--<a href="#/widget/heading"><span class="glyphicon glyphicon-cog"></span></a>-->
+<!--<span class="glyphicon glyphicon-align-justify"></span>-->
+<!--</div>-->
+<!--<p class="para-style space">OLYMPIA, Wash. (AP) - The Washington State Patrol has disclosed numerous instances in which officers were disciplined between 2013 and 2015 for misusing confidential law enforcement databases.-->
+<!--The Associated Press identified through a public records request more than 30 cases in which officers appeared to have either improperly sought information on other people or used databases for expressly personal purposes.-->
+<!--</p>-->
+<!--</div>-->
+
+<!--<div class="relative-position">-->
+<!--<div class="absolute-position icon-on-image">-->
+<!--<a href="#widget/heading"><span class="glyphicon glyphicon-cog"></span></a>-->
+<!--<span class="glyphicon glyphicon-align-justify"></span>-->
+<!--</div>-->
+<!--<h2>Britain's Got Talent: A Singing and Speaking Dog Wow the Judges</h2>-->
+<!--</div>-->
+
+<!--<div class="relative-position embed-responsive embed-responsive-4by3">-->
+<!--<div class="absolute-position icon-on-image">-->
+<!--<a href="#/widget/youtube"><span class="glyphicon glyphicon-cog"></span></a>-->
+<!--<span class="glyphicon glyphicon-align-justify"></span>-->
+<!--</div>-->
+<!--<iframe src="https://www.youtube.com/embed/1inR2b7PS5M?t=1m38s" frameborder="0" allowfullscreen>-->
+<!--</iframe>-->
+<!--</div>-->
+
+
+<!--<div class="relative-position">-->
+<!--<div class="absolute-position icon-on-image space">-->
+<!--<a href="#/widget/heading"><span class="glyphicon glyphicon-cog"></span></a>-->
+<!--<span class="glyphicon glyphicon-align-justify"></span>-->
+<!--</div>-->
+<!--<p class="space">Published on Apr 11, 2015. See more from Britain's Got Talent at <a href="http://itv.com/talent">http://itv.com/talent</a>-->
+<!--The Judges are left open-mouthed when Marc Métral introduces his talking dog Miss Wendy.-->
+<!--"Congratulations, in the nine years of doing this show, Simon has said he wanted a dog that could meow or sing, and you did both, incredible," says Amanda.-->
+<!--Simon is totally smitten!</p>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+
+<!--footer-->
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
         <div class="navbar-footer">

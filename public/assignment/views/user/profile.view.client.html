@@ -1,17 +1,16 @@
-
-
+<!--header-->
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <p class="navbar-text pull-right">
-            <a href="#/profile" class="navbar-link"><span class="glyphicon glyphicon-ok"></span></a></p>
-        <p class="navbar-text pull-left"><a href="#/profile" class="navbar-link"><span class="glyphicon glyphicon-arrow-left"></span></a></p>
+            <a href="#/user/{{model.uid}}" class="navbar-link"><span class="glyphicon glyphicon-ok"></span></a></p>
+        <p class="navbar-text pull-left"><a href="#/login" class="navbar-link"><span class="glyphicon glyphicon-arrow-left"></span></a></p>
         <div class="navbar-header">
-            <a class="navbar-brand" href="#">Profile</a>
+            <a class="navbar-brand" href="#/user/{{model.uid}}">Profile</a>
         </div>
     </div>
 </nav>
 
-
+<!--content-->
 <div class="container-fluid paddingWheader">
     <form>
         <div class="form-group">
@@ -35,11 +34,12 @@
     <a class="btn btn-danger  btn-block" href="#/login">Logout</a>
 </div>
 
+<!--footer-->
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
         <div class="navbar-footer">
             <p class="navbar-text pull-right">
-                <a href="#/profile" class="navbar-link">
+                <a href="#/user/{{model.uid}}" class="navbar-link">
                     <span class="glyphicon glyphicon-user"></span></a></p>
         </div>
     </div>

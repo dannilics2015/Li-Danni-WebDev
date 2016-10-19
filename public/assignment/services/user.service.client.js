@@ -9,9 +9,9 @@
     function UserService() {
 
         var users = [
-            {username: 'Green', password: 'Arrow', _id: 001, firstname: 'Green', lastname: 'Arrow', email: 'ga@mail.com'},
-            {username: 'Jessica', password: 'Jones', _id: 002, firstname: 'Jessica', lastname: 'Jones', email: 'jj@mail.com'},
-            {username: 'Dare', password: 'Devil', _id: 003, firstname: 'Dare', lastname: 'Devil', email: 'dd@mail.com'}
+            {username: 'Green', password: 'Arrow', _id: 123, firstname: 'Green', lastname: 'Arrow', email: 'ga@mail.com'},
+            {username: 'Jessica', password: 'Jones', _id: 234, firstname: 'Jessica', lastname: 'Jones', email: 'jj@mail.com'},
+            {username: 'Dare', password: 'Devil', _id: 345, firstname: 'Dare', lastname: 'Devil', email: 'dd@mail.com'}
         ];
 
         var api = {
@@ -28,7 +28,6 @@
             var last_user_id = users[user.length-1]._id;
             user._id = last_user_id + 1 ;
             users.push(user);
-            console.log("create user successfully");
         }
 
         function findUserById(userId) {

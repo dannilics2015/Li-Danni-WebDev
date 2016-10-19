@@ -9,10 +9,19 @@
     function WebsiteEditController($routeParams, WebsiteService) {
         var vm = this;
 
-        //var websiteId =parseInt($routeParams.uid);
+        var websiteId =parseInt($routeParams.wid);
+        vm.wid = websiteId;
 
-        var website = WebsiteService.findWebsiteById(100);
+        var userId =parseInt($routeParams.uid);
+        vm.uid = userId;
 
-        vm.website = website;
+
+
+        function init() {
+            vm.website =  WebsiteService.findWebsiteById(websiteId);
+            vm.websites = WebsiteService.findWebsitesByUser(userId);
+        }
+        init();
+
     }
 })()

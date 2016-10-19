@@ -9,10 +9,17 @@
     function WebsiteNewController($routeParams, WebsiteService) {
         var vm = this;
 
-        var createWebsite = createWebsite;
+        var userId =parseInt($routeParams.uid);
+        vm.uid = userId;
 
-        function createWebsite() {
-            WebsiteService.createWebsite()
+
+        // var createWebsite = createWebsite;
+        function init() {
+            vm.websites = WebsiteService.findWebsitesByUser(userId);
+            // vm.createWebsite = WebsiteService.createWebsite();
         }
+
+        init();
+
     }
 })();

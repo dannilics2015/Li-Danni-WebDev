@@ -1,27 +1,24 @@
 
 <!--header-->
-<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-4 hidden-xs">
-                <p class="navbar-text pull-right"><a href="#/website/list" class="navbar-link"><span class="glyphicon glyphicon-ok"></span></a></p>
-                <p class="navbar-text pull-left"><a href="#/website/list" class="navbar-link"><span class="glyphicon glyphicon-arrow-left"></span></a></p>
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="#/page/list">Website</a>
-                </div>
+<<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid row">
+        <div class="col-xs-4 hidden-xs">
+            <p class="navbar-text pull-right"><a href="#/user/{{model.uid}}/website" class="navbar-link"><span class="glyphicon glyphicon-ok"></span></a></p>
+            <p class="navbar-text pull-left"><a href="#/user/{{model.uid}}/website" class="navbar-link"><span class="glyphicon glyphicon-arrow-left"></span></a></p>
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#/user/{{model.uid}}/website">Websites</a>
             </div>
-
-
-            <div class="col-md-8 col-xs-12">
-                <p class="navbar-text pull-right"><a href="#/website/list" class="navbar-link"><span class="glyphicon glyphicon-ok"></span></a></p>
-                <p class="navbar-text pull-left visible-xs"><a href="#/website/list" class="navbar-link"><span class="glyphicon glyphicon-arrow-left"></span></a></p>
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="#/page/list">Edit Website</a>
-                </div>
+        </div>
+        <div class="col-md-8 col-xs-12">
+            <p class="navbar-text pull-right"><a href="#/user/{{model.uid}}/website" class="navbar-link"><span class="glyphicon glyphicon-ok"></span></a></p>
+            <p class="navbar-text pull-left"><a href="#/user/{{model.uid}}/website" class="navbar-link"><span class="glyphicon glyphicon-arrow-left visible-xs"></span></a></p>
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#/user/{{model.uid}}/website/new">Edit Website</a>
             </div>
         </div>
     </div>
 </nav>
+
 
 
 <!--content-->
@@ -30,53 +27,18 @@
         <div class="col-sm-4 hidden-xs paddingWheader">
             <div class="blueFont container-fluid">
                 <ul class="list-group">
-                    <li class="list-group-item">
+                    <li ng-repeat="website in model.websites" class="list-group-item">
                         <div class="listConf pull-right">
-                            <a href="#/website/edit">
+                            <a href="#/user/{{model.uid}}/website/{{model.wid}}">
                                 <span class="glyphicon glyphicon-cog"></span></a>
                         </div>
-                        Blogging App
+                        <a href="#/user/{{model.uid}}/website/{{model.wid}}/page">
+                            {{website.name}}
+                        </a>
                     </li>
                 </ul>
             </div>
-
-            <div class="blueFont container-fluid">
-                <ul class="list-group">
-                    <li class="list-group-item">
-                        <div class="listConf pull-right">
-                            <a href="#/website/edit">
-                                <span class="glyphicon glyphicon-cog"></span></a>
-                        </div>
-                        Address Book App
-                    </li>
-                </ul>
             </div>
-
-            <div class="blueFont container-fluid">
-                <ul class="list-group">
-                    <li class="list-group-item">
-                        <div class="listConf pull-right">
-                            <a href="#/website/edit">
-                                <span class="glyphicon glyphicon-cog"></span></a>
-                        </div>
-                        Script Testing App
-                    </li>
-                </ul>
-            </div>
-
-            <div class="blueFont container-fluid">
-                <ul class="list-group">
-                    <li class="list-group-item">
-                        <div class="listConf pull-right">
-                            <a href="#/website/edit">
-                                <span class="glyphicon glyphicon-cog"></span></a>
-                        </div>
-                        Blogger
-                    </li>
-                </ul>
-            </div>
-        </div>
-
         <!--vertical divider-->
         <div class="verticle-line hidden-sm hidden-xs"></div>
         <div class="col-md-8 col-xs-12">
