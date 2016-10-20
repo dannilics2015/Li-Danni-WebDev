@@ -34,7 +34,7 @@
         function checkSafeYouTubeUrl(url) {
             var parts = url.split('/');
             var id = parts[parts.length - 1];
-            url = "http://www.youtube.com/embed/"+id;
+            url = "https://www.youtube.com/embed/"+id;
             return $sce.trustAsResourceUrl(url);
         }
         function checkSafeImageUrl(url) {
