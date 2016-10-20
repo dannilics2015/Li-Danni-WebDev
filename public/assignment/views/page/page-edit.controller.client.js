@@ -20,6 +20,9 @@
         var page = PageService.findPageById(pageId);
         vm.page = page;
 
+        var pages = PageService.findPageByWebsiteId(websiteId);
+        vm.pages = pages;
+
         vm.updatePage = updatePage;
         vm.deletePage = deletePage;
 

@@ -14,11 +14,14 @@
         vm.uid = userId;
 
         vm.createPage = createPage;
+        var pages = PageService.findPageByWebsiteId(websiteId);
+        vm.pages = pages;
 
         function createPage(websiteId, page) {
             PageService.createPage(websiteId, page);
             $location.url("/user/" + userId + "/website/" + websiteId + "/page");
         }
+
 
     }
 })();

@@ -4,10 +4,10 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-4 hidden-xs">
-                <p class="navbar-text pull-right"><a href="page-new.view.client.html" class="navbar-link"><span class="glyphicon glyphicon-plus"></span></a></p>
-                <p class="navbar-text pull-left"><a href="page-list.view.client.html" class="navbar-link"><span class="glyphicon glyphicon-arrow-left"></span></a></p>
+                <p class="navbar-text pull-right"><a href="#/user/{{model.uid}}/website/{{model.wid}}/page/new" class="navbar-link"><span class="glyphicon glyphicon-plus"></span></a></p>
+                <p class="navbar-text pull-left"><a href="#/user/{{model.uid}}/website/{{model.wid}}/page" class="navbar-link"><span class="glyphicon glyphicon-arrow-left"></span></a></p>
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="page-list.view.client.html">Pages</a>
+                    <a class="navbar-brand">Pages</a>
                 </div>
             </div>
 
@@ -28,56 +28,17 @@
         <div class="col-sm-4 hidden-xs">
             <div class="blueFont container-fluid">
                 <ul class="list-group">
-                    <li class="list-group-item">
+                    <li ng-repeat="page in model.pages" class="list-group-item">
                         <div class="listConf pull-right">
-                            <a href="page-edit.view.client.html">
+                            <a href="#/user/{{model.uid}}/website/{{model.wid}}/page/page._id">
                                 <span class="glyphicon glyphicon-cog"></span></a>
                         </div>
-                        Blog Post
-                    </li>
-                </ul>
-
-                <ul class="list-group">
-                    <li class="list-group-item">
-                        <div class="listConf pull-right">
-                            <a href="page-edit.view.client.html">
-                                <span class="glyphicon glyphicon-cog"></span></a>
-                        </div>
-                        Blogs
-                    </li>
-                </ul>
-
-                <ul class="list-group">
-                    <li class="list-group-item">
-                        <div class="listConf pull-right">
-                            <a href="page-edit.view.client.html">
-                                <span class="glyphicon glyphicon-cog"></span></a>
-                        </div>
-                        Home
-                    </li>
-                </ul>
-
-                <ul class="list-group">
-                    <li class="list-group-item">
-                        <div class="listConf pull-right">
-                            <a href="page-edit.view.client.html">
-                                <span class="glyphicon glyphicon-cog"></span></a>
-                        </div>
-                        About
-                    </li>
-                </ul>
-
-                <ul class="list-group">
-                    <li class="list-group-item">
-                        <div class="listConf pull-right">
-                            <a href="page-edit.view.client.html">
-                                <span class="glyphicon glyphicon-cog"></span></a>
-                        </div>
-                        Contact Us
+                        {{page.name}}
                     </li>
                 </ul>
             </div>
         </div>
+
 
         <!--vertical divider-->
         <div class="verticle-line hidden-sm hidden-xs"></div>
