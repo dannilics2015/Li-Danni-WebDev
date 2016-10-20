@@ -34,7 +34,7 @@
                 <ul class="list-group">
                     <li ng-repeat="website in model.websites" class="list-group-item">
                         <div class="listConf pull-right">
-                            <a href="#/user/{{model.uid}}/website/{{model.wid}}">
+                            <a ng-click="model.findWebsiteById(website._id)">
                                 <span class="glyphicon glyphicon-cog"></span></a>
                         </div>
                         <a href="#/user/{{model.uid}}/website/{{model.wid}}/page">

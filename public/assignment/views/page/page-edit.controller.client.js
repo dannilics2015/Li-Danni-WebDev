@@ -25,6 +25,7 @@
 
         vm.updatePage = updatePage;
         vm.deletePage = deletePage;
+        vm.findPageById = findPageById;
 
         function updatePage(pageId, page) {
             PageService.updatePage(pageId, page);
@@ -34,6 +35,11 @@
         function deletePage(pageId) {
             PageService.deletePage(pageId);
             $location.url("/user/" + userId + "/website/" + websiteId + "/page");
+        }
+
+        function findPageById(pageId) {
+            PageService.findPageById(pageId);
+            $location.url("/user/" + userId + "/website/" + websiteId + "/page/" + pageId);
         }
     }
 })();

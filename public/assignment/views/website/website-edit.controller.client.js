@@ -17,6 +17,7 @@
 
         vm.deleteWebsite = deleteWebsite;
         vm.updateWebsite = updateWebsite;
+        vm.findWebsiteById =findWebsiteById;
 
         function deleteWebsite(websiteId) {
             WebsiteService.deleteWebsite(websiteId);
@@ -25,6 +26,11 @@
         function updateWebsite(websiteId, website) {
             WebsiteService.updateWebsite(websiteId, website);
             $location.url("/user/" + userId + "/website");
+        }
+
+        function findWebsiteById(websiteId) {
+            WebsiteService.findWebsiteById(websiteId);
+            $location.url("/user/" + userId + "/website/" + websiteId);
         }
         function init() {
             vm.website =  WebsiteService.findWebsiteById(websiteId);
