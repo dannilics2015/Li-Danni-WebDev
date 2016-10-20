@@ -30,6 +30,7 @@
             }
             var newWidget = WidgetService.createWidget(pageId, widget);
             $location.url("/user/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget/" + newWidget._id);
+
         }
 
     }

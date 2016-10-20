@@ -34,8 +34,9 @@
             if(widget.widgetType == 'HEADER' && widget.size == null) {
                 widget.size = 3;
             }
-            WidgetService.createWidget(pageId, widget);
+            var newWidget = WidgetService.createWidget(pageId, widget);
             $location.url("/user/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget" );
+            vm.widget = newWidget;
         }
 
         function deleteWidget(widgetId) {
