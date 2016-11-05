@@ -14,7 +14,11 @@
 
         //load and execute initially
         function init() {
-            vm.websites = WebsiteService.findWebsitesByUser(userId);
+            var promise = WebsiteService.findAllWebsitesForUser(vm.uid);
+            promise
+                .success(function(websites) {
+                    vm.websites = websites;
+                })
         }
 
         init();

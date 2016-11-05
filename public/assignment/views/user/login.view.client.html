@@ -5,17 +5,12 @@
     </div>
 
     <h1>Login</h1>
-    {{model.error}}
     <div class="padding">
         <input type="text" ng-model="model.username" class="form-control" placeholder="Username"/>
         <input type="password" ng-model="model.password" class="form-control" placeholder="Password"/>
 
         <a ng-click="model.login(model.username, model.password)" class="btn btn-success btn-default btn-block">Login</a>
         <a class="btn btn-primary btn-default btn-block" href="#/register">Register</a>
-        <ul>
-        <li ng-repeat="user in users">
-        </li>
-        </ul>
 
     </div>
 </div>

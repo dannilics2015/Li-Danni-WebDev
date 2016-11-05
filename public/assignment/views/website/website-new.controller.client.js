@@ -15,17 +15,31 @@
 
         vm.createWebsite = createWebsite;
 
+            function init() {
+                var promise = WebsiteService.findAllWebsitesForUser(userId);
+                promise
+                    .success(function(websites) {
+                        vm.websites = websites;
+                    })
+            }
+
+            init();
+
+
+
+
         function createWebsite(userId, website) {
-            WebsiteService.createWebsite(userId, website);
-            $location.url("/user/" + userId + "/website");
+            var promise = WebsiteService.createWebsite(userId, website);
+            promise
+                .success(function (website) {
+                    $location.url("/user/" + userId + "/website");
+                })
+                .error(function (error) {
+                    console.log("create website error");
+                });
         }
 
-        function init() {
-            vm.websites = WebsiteService.findWebsitesByUser(userId);
 
-        }
-
-        init();
 
     }
 })();

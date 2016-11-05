@@ -1,6 +1,7 @@
 /**
  * Created by LiDanni on 10/15/16.
  */
+
 (function(){
     angular
         .module("WebAppMaker")
@@ -19,12 +20,32 @@
         vm.updateWebsite = updateWebsite;
         vm.findWebsiteById =findWebsiteById;
 
+        function init() {
+
+
+            WebsiteService.findWebsiteById(websiteId)
+                .success(function(website) {
+                    vm.website = website;
+                })
+
+
+            var promise = WebsiteService.findAllWebsitesForUser(vm.uid);
+            promise
+                .success(function(websites) {
+                    vm.websites = websites;
+                })
+        }
+        init();
+
         function deleteWebsite(websiteId) {
-            WebsiteService.deleteWebsite(websiteId);
+            WebsiteService.deleteWebsite(websiteId)
+                .success(function() {
+                    $location.url("/user/" + userId + "/website")
+                })
         }
 
-        function updateWebsite(websiteId, website) {
-            WebsiteService.updateWebsite(websiteId, website);
+        function updateWebsite() {
+            WebsiteService.updateWebsite(websiteId, vm.website);
             $location.url("/user/" + userId + "/website");
         }
 
@@ -32,12 +53,5 @@
             WebsiteService.findWebsiteById(websiteId);
             $location.url("/user/" + userId + "/website/" + websiteId);
         }
-        function init() {
-            vm.website =  WebsiteService.findWebsiteById(websiteId);
-            vm.websites = WebsiteService.findWebsitesByUser(userId);
-        }
-        init();
-
-
     }
 })()

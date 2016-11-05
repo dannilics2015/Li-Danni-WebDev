@@ -1,4 +1,3 @@
-
 <!--header-->
 <!--landscape-->
 <<nav class="navbar navbar-default navbar-fixed-top">
@@ -13,7 +12,7 @@
         <!--portrait-->
         <div class="col-md-8 col-xs-12">
             <p class="navbar-text pull-right">
-                <a ng-click="model.updateWebsite('100', {_id: model.wid, name: model.website.name, developerId: model.uid, description: model.website.description})" class="navbar-link">
+                <a ng-click="model.updateWebsite(model.wid, model.website)" class="navbar-link">
                     <span class="glyphicon glyphicon-ok"></span></a></p>
             <p class="navbar-text pull-left"><a href="#/user/{{model.uid}}/website" class="navbar-link"><span class="glyphicon glyphicon-arrow-left visible-xs"></span></a></p>
             <div class="navbar-header">
@@ -43,7 +42,7 @@
                     </li>
                 </ul>
             </div>
-            </div>
+        </div>
 
         <!--portrait-->
         <div class="verticle-line hidden-sm hidden-xs"></div>
@@ -70,7 +69,7 @@
 
 
 
- <!--footer-->
+<!--footer-->
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
         <div class="navbar-footer">

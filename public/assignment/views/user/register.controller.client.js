@@ -11,13 +11,17 @@
         vm.createUser = createUser;
 
         function createUser(user) {
-            if (vm.password === vm.passwordVerify) {
-                var newUser = UserService.createUser(user);
-                $location.url("/user/" + newUser._id);
+            if(vm.password == vm.passwordVerify) {
+                var promise = UserService.createUser(user);
+                promise
+                    .success(function (user) {
+                        $location.url("/user/" + user._id);
+                    })
+                    .error(function (error) {
+                        console.log("register error");
+                    })
             }
-            else {
-                vm.error = "Password doesn't match";
-            }
+            else vm.error = "Passowrd doesn't match";
         }
     }
 })();

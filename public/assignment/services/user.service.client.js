@@ -6,13 +6,7 @@
         .module("WebAppMaker")
         .factory("UserService", UserService);
 
-    function UserService() {
-
-        var users = [
-            {username: 'Green', password: 'Arrow', _id: "123", firstname: 'Green', lastname: 'Arrow', email: 'ga@mail.com'},
-            {username: 'Jessica', password: 'Jones', _id: "234", firstname: 'Jessica', lastname: 'Jones', email: 'jj@mail.com'},
-            {username: 'Dare', password: 'Devil', _id: "345", firstname: 'Dare', lastname: 'Devil', email: 'dd@mail.com'}
-        ];
+    function UserService($http) {
 
         var api = {
             createUser   : createUser,
@@ -25,22 +19,12 @@
         return api;
 
         function createUser(user) {
-            var last_user_id = users[users.length-1]._id;
-            user._id = last_user_id + 1 ;
-            user.firstname = 'N/A';
-            user.email = 'N/A';
-            user.lastname = 'N/A'
-            users.push(user);
-            return user;
+            return $http.post("/api/user/", user);
         }
 
         function findUserById(userId) {
-            for(var i=0; i<users.length; i++){
-                if(users[i]._id == userId){
-                    return users[i];
-                }
-            }
-            return null;
+            var url = "/api/user/" + userId;
+            return $http.get(url);
         }
 
         function findUserByUsername(username) {
@@ -53,31 +37,31 @@
         }
 
         function findUserByCredentials(username, password){
-            for(var i in users){
-                if(users[i].username === username && users[i].password === password){
-                    return users[i];
-                }
-            }
-            return null;
+            var url = '/api/user?username=' + username + '&password=' + password;
+            return $http.get(url);
         }
 
         function updateUser(userId, user) {
-            for (var i=0; i < users.length; i++) {
-                if (users[i]._id == userId) {
-                    users[i].username = user.username;
-                    users[i].email = user.email;
-                    users[i].firstname = user.firstname;
-                    users[i].lastname = user.lastname;
-                }
-            }
+            // for (var i=0; i < users.length; i++) {
+            //     if (users[i]._id == userId) {
+            //         users[i].username = user.username;
+            //         users[i].email = user.email;
+            //         users[i].firstname = user.firstname;
+            //         users[i].lastname = user.lastname;
+            //     }
+            // }
+            var url = "/api/user/" + userId;
+            return $http.put(url, user);
         }
 
         function deleteUser(userId) {
-            for (var i=0; i < users.length; i++) {
-                if (users[i]._id == userId) {
-                    users.splice(i, 1);
-                }
-            }
+            // for (var i=0; i < users.length; i++) {
+            //     if (users[i]._id == userId) {
+            //         users.splice(i, 1);
+            //     }
+            // }
+            var url = "/api/user/" + userId;
+            return $http.delete(url);
         }
     }
 })();
