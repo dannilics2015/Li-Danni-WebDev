@@ -14,12 +14,27 @@
         vm.uid = userId;
 
         vm.createPage = createPage;
-        var pages = PageService.findPageByWebsiteId(websiteId);
-        vm.pages = pages;
+        //var pages = PageService.findPageByWebsiteId(websiteId);
+        //vm.pages = pages;
+
+        function init() {
+            var promise = PageService.findAllPagesForWebsite(websiteId);
+            promise
+                .success(function(pages) {
+                    vm.pages = pages;
+                })
+        }
+        init();
 
         function createPage(websiteId, page) {
-            PageService.createPage(websiteId, page);
-            $location.url("/user/" + userId + "/website/" + websiteId + "/page");
+            var promise = PageService.createPage(websiteId, page);
+            promise
+                .success(function (page) {
+                    $location.url("/user/" + userId + "/website/" + websiteId + "/page");
+                })
+                .error(function (error) {
+                    console.log("create page error");
+                });
         }
 
 

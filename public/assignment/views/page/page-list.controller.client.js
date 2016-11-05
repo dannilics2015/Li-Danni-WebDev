@@ -14,8 +14,17 @@
         var websiteId = parseInt($routeParams.wid);
         vm.wid = websiteId;
 
-        var pages = PageService.findPageByWebsiteId(websiteId);
-        vm.pages = pages;
+        function init() {
+            var promise = PageService.findAllPagesForWebsite(websiteId);
+            promise
+                .success(function(pages) {
+                    vm.pages = pages;
+                })
+                .error(function(){
+                    console.log("no pages");
+                })
+        }
+        init();
 
     }
 })();
