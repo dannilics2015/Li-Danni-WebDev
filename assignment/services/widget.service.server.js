@@ -104,33 +104,33 @@ module.exports = function(app) {
         // res.send(myFile);
     }
 
-    // function sortWidgets(req, res) {
-    //     var pageId = req.params.pid;
-    //     var start = req.query.initial;
-    //     var end = req.query.final;
-    //     var pageWidgets = -1;
-    //     for(var w in widgets) {
-    //         if(widgets[w].pageId == pageId) {
-    //             pageWidgets++;
-    //             if(start == pageWidgets) {
-    //                 var startIndex = i;
-    //             }
-    //             if(end == pageWidgets) {
-    //                 var endIndex = i;
-    //             }
-    //         }
-    //     }
-    //     var order = widgets.splice(startIndex, 1)[0];
-    //     widgets.splice(endIndex, 0, order);
-    //     res.send('200');
-    // }
     function sortWidget(req, res) {
         var pageId = req.params.pid;
         var start = req.query.start;
         var end = req.query.end;
-
-        widgets.splice(end, 0, widgets.splice(start, 1)[0]);
+        var pageWidgets = -1;
+        for(var w in widgets) {
+            if(widgets[w].pageId == pageId) {
+                pageWidgets++;
+                if(start == pageWidgets) {
+                    var startIndex = w;
+                }
+                if(end == pageWidgets) {
+                    var endIndex = w;
+                }
+            }
+        }
+        var order = widgets.splice(startIndex, 1)[0];
+        widgets.splice(endIndex, 0, order);
         res.send('200');
     }
+    // function sortWidget(req, res) {
+    //     var pageId = req.params.pid;
+    //     var start = req.query.start;
+    //     var end = req.query.end;
+    //
+    //     widgets.splice(end, 0, widgets.splice(start, 1)[0]);
+    //     res.send('200');
+    // }
 
 }
