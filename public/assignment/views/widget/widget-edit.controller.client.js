@@ -25,31 +25,47 @@
         vm.createWidget = createWidget;
 
 
-        function updateWidget(widgetId, widget) {
-            WidgetService.updateWidget(widgetId, widget);
-            $location.url("/user/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget" );
-        }
-
-        function createWidget(pageId, widget) {
-            if(widget.widgetType == 'HEADER' && widget.size == null) {
-                widget.size = 3;
-            }
-            var newWidget = WidgetService.createWidget(pageId, widget);
-            $location.url("/user/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget" );
-            vm.widget = newWidget;
-        }
-
-        function deleteWidget(widgetId) {
-            WidgetService.deleteWidget(widgetId);
-            $location.url("/user/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget" );
-        }
-
-
         function init() {
-            vm.widget = WidgetService.findWidgetById(widgetId);
+            WidgetService.findWidgetById(widgetId)
+                .success(function(widget) {
+                    vm.widget = widget;
+                });
 
         }
         init();
+
+        function updateWidget() {
+            WidgetService.updateWidget(widgetId, vm.widget)
+                .success(function() {
+                    $location.url("/user/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget" );
+                });
+        }
+
+        function createWidget(pageId, widget) {
+            // if(widget.widgetType == 'HEADER' && widget.size == null) {
+            //     widget.size = 3;
+            // }
+            // var newWidget = WidgetService.createWidget(pageId, widget);
+            // $location.url("/user/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget" );
+            // vm.widget = newWidget;
+            WidgetService.createWidget(pageId, widget)
+                .success(function(widget) {
+                    $location.url("/user/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget");
+                })
+                .error(function (error) {
+                    console.log("create widget error");
+                });
+        }
+
+        function deleteWidget() {
+            WidgetService.deleteWidget(widgetId)
+                .success(function() {
+                    $location.url("/user/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget" );
+                })
+        }
+
+
+
 
 
     }

@@ -6,8 +6,9 @@
         .module("WebAppMaker")
         .controller("WidgetListController", WidgetListController);
 
-    function WidgetListController($routeParams, WidgetService, $sce) {
+    function WidgetListController($location, $routeParams, WidgetService, $sce) {
         var vm = this;
+
 
         var userId =parseInt($routeParams.uid);
         vm.uid = userId;
@@ -21,12 +22,27 @@
         vm.checkSafeHtml = checkSafeHtml;
         vm.checkSafeYouTubeUrl = checkSafeYouTubeUrl;
         vm.checkSafeImageUrl = checkSafeImageUrl;
+        vm.sortWidget= sortWidget;
 
         //load and execute initially
         function init() {
-            vm.widgets = WidgetService.findWidgetByPageId(pageId);
+            var promise = WidgetService.findAllWidgetsForPage(pageId);
+            promise
+                .success(function(widgets) {
+                    vm.widgets = widgets;
+                });
+            // var allwidgets = $(".wam-widgets")
+            //     .sortable({
+            //         axis: 'y'
+            //     });
+            // console.log(allwidgets);
         }
+
         init();
+
+        function sortWidget(start, end) {
+            WidgetService.sortWidget(start, end, vm.pid);
+        }
 
         function checkSafeHtml(html) {
             return $sce.trustAsHtml(html);

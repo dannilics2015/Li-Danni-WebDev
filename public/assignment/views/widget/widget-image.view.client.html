@@ -9,11 +9,19 @@
     <input ng-model="model.widget.url" id = "url" type="basic-url" class="form-control" placeholder="http://www/youtube.com"/>
     <label for="width">Width</label>
     <input ng-model="model.widget.width" id = "width" type="percentage" class="form-control" placeholder="100%"/>
-    <label for="upload">URL</label>
-    <input ng-model="model.widget.upload" id = "upload" type="file" class="form-control" placeholder="No File Choosen"/>
+    <!--<label for="upload">URL</label>-->
+    <!--<input ng-model="model.widget.upload" id = "upload" type="file" class="form-control" placeholder="No File Choosen"/>-->
+    <!---->
+
+
+
+
+
+
+
     <div>
-        <a ng-click="model.updateWidget(model.widget._id, {text: model.widget.text, url: model.widget.upload, width: model.widget.percentage})" class="btn btn-success btn-default btn-block space">Upload Image</a>
-        <a ng-click="model.deleteWidget(model.widget._id)" class="btn btn-danger btn-default btn-block space">Delete</a>
+        <a ng-click="model.updateWidget()" class="btn btn-success btn-default btn-block space">Update Image</a>
+        <a ng-click="model.deleteWidget()" class="btn btn-danger btn-default btn-block space">Delete</a>
     </div>
 </div>
 

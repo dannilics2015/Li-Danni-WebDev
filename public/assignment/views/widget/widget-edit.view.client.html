@@ -1,8 +1,7 @@
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <p class="navbar-text pull-right">
-            <a ng-click="model.createWidget(model.pid, {size: model.widget.size, text: model.widget.text, url: model.widget.url,
-            width: model.widget.width})" class="navbar-link"><span class="glyphicon glyphicon-ok"></span></a></p>
+            <a ng-click="model.updateWidget()" class="navbar-link"><span class="glyphicon glyphicon-ok"></span></a></p>
         <p class="navbar-text pull-left"><a href="#/user/{{model.uid}}/website/{{model.wid}}/page/{{model.pid}}/widget/new" class="navbar-link"><span class="glyphicon glyphicon-arrow-left"></span></a></p>
         <div class="navbar-header">
             <a class="navbar-brand" href="#">Edit Widget</a>
@@ -25,6 +24,15 @@
             </div>
         </form>
 </div>
+
+
+<form action="/api/uploads"  method="post" enctype="multipart/form-data">
+    <input  name="myFile"   type="file" class="form-control"/>
+    <input  name="width"    value="{{model.widget.width}}" style="display: none"/>
+    <input  name="widgetId" value="{{model.widget._id}}"   style="display: none"/>
+    <button type="submit"   class="btn btn-block btn-primary">Upload Image</button>
+</form>
+
 
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
