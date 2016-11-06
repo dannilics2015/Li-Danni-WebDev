@@ -15,6 +15,7 @@
             <div ng-switch-when="HEADER">
                 <div ng-include src="'views/widget/widget-header.view.client.html'"></div>
             </div>
+
             <div ng-switch-when="IMAGE">
                 <div ng-include src="'views/widget/widget-image.view.client.html'"></div>
             </div>
@@ -22,16 +23,20 @@
                 <div ng-include src="'views/widget/widget-youtube.view.client.html'"></div>
             </div>
             </div>
-        </form>
+    </form>
+    <form action="/api/uploads"  method="post" enctype="multipart/form-data">
+        <input  name="myFile"   type="file" class="form-control"/>
+        <input  name="width"    value="{{model.width}}" style="display: none"/>
+        <input  name="widgetId" value="{{model.wgid}}"   style="display: none"/>
+        <input  name="userId" value="{{model.uid}}" style="display: none"/>
+        <input  name="pageId" value="{{model.pid}}" style="display: none"/>
+        <input  name="websiteId" value="{{model.wid}}" style="display: none"/>
+        <button type="submit"   class="btn btn-block btn-primary">Upload</button>
+    </form>
+
 </div>
 
 
-<form action="/api/uploads"  method="post" enctype="multipart/form-data">
-    <input  name="myFile"   type="file" class="form-control"/>
-    <input  name="width"    value="{{model.widget.width}}" style="display: none"/>
-    <input  name="widgetId" value="{{model.widget._id}}"   style="display: none"/>
-    <button type="submit"   class="btn btn-block btn-primary">Upload Image</button>
-</form>
 
 
 <nav class="navbar navbar-default navbar-fixed-bottom">

@@ -14,11 +14,11 @@ module.exports = function(app) {
         { _id: "234", widgetType: "HEADER", pageId: "321", size: 4, text: "Lorem ipsum"},
         { _id: "345", widgetType: "IMAGE", pageId: "321", width: "100%",
             url: "http://lorempixel.com/400/200/"},
-        { _id: "456", widgetType: "HTML", pageId: "321", text: "<p>Lorem ipsum</p>"},
+        // { _id: "456", widgetType: "H", pageId: "321", text: "<p>Lorem ipsum</p>"},
         { _id: "567", widgetType: "HEADER", pageI: "321", size: 4, text: "Lorem ipsum"},
         { _id: "678", widgetType: "YOUTUBE", pageId: "321", width: "100%",
             url: "https://youtu.be/eFqj-jgA6Mg" },
-        { _id: "789", widgetType: "HTML", pageId: "321", text: "<p>Lorem ipsum</p>"}
+        // { _id: "789", widgetType: "HTML", pageId: "321", text: "<p>Lorem ipsum</p>"}
     ];
 
     app.post ("/api/uploads", upload.single('myFile'), uploadImage);
@@ -66,9 +66,11 @@ module.exports = function(app) {
         for(var w in widgets) {
             if(widgets[w]._id == widgetId) {
                 widgets[w] = widget;
+                res.send(widgets[w]);
+                return;
             }
         }
-        res.send('200');
+        res.send('0');
     }
 
     function deleteWidget(req, res) {
@@ -82,9 +84,9 @@ module.exports = function(app) {
     }
 
     function uploadImage(req, res) {
-        // var userId = req.body.uid;
-        // var websiteId = req.body.wid;
-        // var pageId = req.body.pageId;
+        var userId = req.body.userId;
+        var websiteId = req.body.websiteId;
+        var pageId = req.body.pageId;
         var widgetId      = req.body.widgetId;
         var width         = req.body.width;
         var myFile        = req.file;
@@ -95,9 +97,11 @@ module.exports = function(app) {
         var size          = myFile.size;
         var mimetype      = myFile.mimetype;
 
-        // var url = '/assignment/index.html#/user/' + userId + '/website/' + websiteId + '/page/'
-        // + pageId + '/widget/' + widgetId;
-        // res.redirect(url);
+        var url = '../assignment/index.html#/user/' + userId + '/website/' + websiteId + '/page/'
+        + pageId + '/widget/' + widgetId;
+
+        res.redirect(url);
+        // res.send(myFile);
     }
 
     // function sortWidgets(req, res) {
