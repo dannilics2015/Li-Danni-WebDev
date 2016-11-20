@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="MovieApp">
+<head>
+    <link href="../assignment/css/style.css" rel="stylesheet"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <script src="app.js"></script>
+    <meta charset="UTF-8">
+    <title>MovieAoo</title>
+</head>
+<body>
+<div class="container-fluid" ng-controller="MovieSearchController as model">
+    <h1>Movie Application</h1>
+
+    <div class="input-group">
+        <input ng-model="title" type="text" class="form-control" placeholder="Search for...">
+        <span class="input-group-btn">
+        <button ng-click="model.searchMovieByTitle(title)" class="btn btn-default" type="button">Go!</button>
+      </span>
+    </div>
+    <table>
+        <thead>
+        <tr>
+            <th>Title</th>
+            <th>Years</th>
+            <th>Posts</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="movie in model.movies">
+            <td>{{movie.Title}}</td>
+            <td>{{movie.Year}}</td>
+            <td><img ng-src="{{movie.Poster}}"/></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
+

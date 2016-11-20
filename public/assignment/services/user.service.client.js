@@ -42,24 +42,13 @@
         }
 
         function updateUser(userId, user) {
-            // for (var i=0; i < users.length; i++) {
-            //     if (users[i]._id == userId) {
-            //         users[i].username = user.username;
-            //         users[i].email = user.email;
-            //         users[i].firstname = user.firstname;
-            //         users[i].lastname = user.lastname;
-            //     }
-            // }
+
             var url = "/api/user/" + userId;
             return $http.put(url, user);
         }
 
         function deleteUser(userId) {
-            // for (var i=0; i < users.length; i++) {
-            //     if (users[i]._id == userId) {
-            //         users.splice(i, 1);
-            //     }
-            // }
+
             var url = "/api/user/" + userId;
             return $http.delete(url);
         }

@@ -14,7 +14,7 @@
             var promise = UserService.findUserByCredentials(username, password);
             promise
                 .success(function (user) {
-                    if (user === '0') {
+                    if (user == "") {
                         vm.error = "No such User";
                     }
                     else {

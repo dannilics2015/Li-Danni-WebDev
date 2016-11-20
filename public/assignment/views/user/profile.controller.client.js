@@ -8,7 +8,7 @@
 
     function ProfileController($location, $routeParams, UserService) {
         var vm = this;
-        var userId = parseInt($routeParams.uid);
+        var userId = $routeParams.uid;
         vm.uid = userId;
         vm.updateUser = updateUser;
         vm.deleteUser = deleteUser;
