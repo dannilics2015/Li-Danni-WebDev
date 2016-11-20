@@ -16,7 +16,7 @@
     <div class="list-group">
         <div class="relative-position">
             <div jga-sortable jga-sortable-callback="model.sortWidget(start, end)">
-                <div ng-switch="widget.widgetType"
+                <div ng-switch="widget.type"
                      ng-repeat="widget in model.widgets">
                     <div ng-switch="widget.size" ng-switch-when="HEADER">
                         <div class="icon-on-image pull-right">

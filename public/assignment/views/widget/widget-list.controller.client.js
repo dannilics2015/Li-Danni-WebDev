@@ -10,13 +10,13 @@
         var vm = this;
 
 
-        var userId =parseInt($routeParams.uid);
+        var userId = $routeParams.uid;
         vm.uid = userId;
 
-        var pageId = parseInt($routeParams.pid);
+        var pageId = $routeParams.pid;
         vm.pid = pageId;
 
-        var websiteId = parseInt($routeParams.wid);
+        var websiteId = $routeParams.wid;
         vm.wid = websiteId;
 
         vm.checkSafeHtml = checkSafeHtml;

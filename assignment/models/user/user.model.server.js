@@ -12,10 +12,15 @@ module.exports = function() {
         findUserById: findUserById,
         updateUser: updateUser,
         findUserByCredentials: findUserByCredentials,
-        deleteUser : deleteUser
+    //    findAllWebsitesForUser: findAllWebsitesForUser,
+        deleteUser : deleteUser,
+        setModel: setModel
     };
     return api;
 
+    function setModel(_model) {
+        model = _model;
+    }
 
     function createUser(user) {
         return UserModel.create(user);
@@ -49,4 +54,11 @@ module.exports = function() {
     function deleteUser(userId) {
         return UserModel.remove({_id: userId});
     }
+
+    // function findAllWebsitesForUser(userId) {
+    //     return UserModel.findById(userId)
+    //         .then(function(user) {
+    //             return user.websites;
+    //         })
+    // }
 };

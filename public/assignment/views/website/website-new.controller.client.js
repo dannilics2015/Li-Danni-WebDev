@@ -9,7 +9,7 @@
     function WebsiteNewController($routeParams, WebsiteService, $location) {
         var vm = this;
 
-        var userId =parseInt($routeParams.uid);
+        var userId = $routeParams.uid;
         vm.uid = userId;
 
 
@@ -28,15 +28,24 @@
 
 
 
-        function createWebsite(userId, website) {
-            var promise = WebsiteService.createWebsite(userId, website);
-            promise
-                .success(function (website) {
-                    $location.url("/user/" + userId + "/website");
-                })
-                .error(function (error) {
-                    console.log("create website error");
-                });
+        function createWebsite() {
+            var name = document.getElementById('name').value;
+            var description = document.getElementById('description').value;
+            if(name != "") {
+                var website = {};
+                website["name"] = name;
+                website["description"] = description;
+                var promise = WebsiteService.createWebsite(vm.uid, website);
+                promise
+                    .success(function(website){
+                        if(website){
+                            $location.url("/user/" + vm.uid + "/website");
+                        }
+                    })
+                    .error(function (error) {
+                        console.log("create website error");
+                    });
+            }
         }
 
 

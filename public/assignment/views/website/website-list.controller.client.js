@@ -9,7 +9,7 @@
     function WebsiteListController($routeParams, WebsiteService) {
         var vm = this;
 
-        var userId =parseInt($routeParams.uid);
+        var userId = $routeParams.uid;
         vm.uid = userId;
 
         //load and execute initially

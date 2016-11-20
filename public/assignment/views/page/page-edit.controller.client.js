@@ -8,13 +8,13 @@
 
     function PageEditController($routeParams, PageService, $location) {
         var vm = this;
-        var websiteId = parseInt($routeParams.wid);
+        var websiteId = $routeParams.wid;
         vm.wid = websiteId;
 
-        var userId = parseInt($routeParams.uid);
+        var userId = $routeParams.uid;
         vm.uid = userId;
 
-        var pageId = parseInt($routeParams.pid);
+        var pageId = $routeParams.pid;
         vm.pid = pageId;
 
 
@@ -44,6 +44,19 @@
         function updatePage() {
             // PageService.updatePage(pageId, page);
             // $location.url("/user/" + userId + "/website/" + websiteId + "/page");
+            // PageService.updatePage(vm.pid, vm.page)
+            //     .success(function() {
+            //         $location.url("/user/" + userId + "/website/" + websiteId + "/page");
+            //     });
+            var page ={};
+            var name = document.getElementById('name').value;
+            var title = document.getElementById('title').value;
+            page["_id"] = vm.pid;
+            page["name"] = name;
+            page["title"] = title;
+            page["websiteId"] = vm.wid;
+            PageService.updatePage(pageId, page);
+            $location.url("/user/" + userId + "/website/" + websiteId + "/page");
             PageService.updatePage(vm.pid, vm.page)
                 .success(function() {
                     $location.url("/user/" + userId + "/website/" + websiteId + "/page");

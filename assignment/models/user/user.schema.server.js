@@ -3,6 +3,7 @@
  */
 module.exports = function () {
     var mongoose = require("mongoose");
+    var WebsiteSchema = require("../website/website.schema.server")(mongoose);
     var UserSchema = mongoose.Schema({
         username: String,
         password: String,
@@ -10,7 +11,8 @@ module.exports = function () {
         lastname: String,
         email: String,
         phone: String,
-        //websites: Website,
+        websites: [WebsiteSchema],
+        //websites: [{type:mongoose.Schema.Types.ObjectId, ref:'WebsiteModel'}] //prefer for have the instances live in and share only with the user
         // dateCreated: {type: Date, default: Date.now}
     }, {collection: "user"});
     return UserSchema;

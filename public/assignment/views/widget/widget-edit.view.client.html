@@ -1,50 +1,51 @@
-<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
-        <p class="navbar-text pull-right">
-            <a ng-click="model.updateWidget()" class="navbar-link"><span class="glyphicon glyphicon-ok"></span></a></p>
-        <p class="navbar-text pull-left"><a href="#/user/{{model.uid}}/website/{{model.wid}}/page/{{model.pid}}/widget/new" class="navbar-link"><span class="glyphicon glyphicon-arrow-left"></span></a></p>
-        <div class="navbar-header">
-            <a class="navbar-brand" href="#">Edit Widget</a>
-        </div>
-    </div>
-</nav>
+<!--<nav class="navbar navbar-default navbar-fixed-top">-->
+    <!--<div class="container-fluid">-->
+        <!--<p class="navbar-text pull-right">-->
+            <!--<a ng-click="model.updateHeader()" class="navbar-link"><span class="glyphicon glyphicon-ok"></span></a></p>-->
+        <!--<p class="navbar-text pull-left"><a href="#/user/{{model.uid}}/website/{{model.wid}}/page/{{model.pid}}/widget/new" class="navbar-link"><span class="glyphicon glyphicon-arrow-left"></span></a></p>-->
+        <!--<div class="navbar-header">-->
+            <!--<a class="navbar-brand" href="#">Edit Widget</a>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</nav>-->
 
 <div class="container-fluid paddingWheader">
     <form>
-        <div ng-switch="model.widget.widgetType">
-            <div ng-switch-when="HEADER">
-                <div ng-include src="'views/widget/widget-header.view.client.html'"></div>
-            </div>
+        <!--<div ng-switch="model.widget.type">-->
+            <!--<div ng-switch-when="HEADER">-->
+                <!--<div ng-include src="'views/widget/widget-header.view.client.html'"></div>-->
+            <!--</div>-->
 
-            <div ng-switch-when="IMAGE">
-                <div ng-include src="'views/widget/widget-image.view.client.html'"></div>
-            </div>
-            <div ng-switch-when="YOUTUBE">
-                <div ng-include src="'views/widget/widget-youtube.view.client.html'"></div>
-            </div>
-            </div>
+            <!--<div ng-switch-when="IMAGE">-->
+                <!--<div ng-include src="'views/widget/widget-image.view.client.html'"></div>-->
+            <!--</div>-->
+            <!--<div ng-switch-when="YOUTUBE">-->
+                <!--<div ng-include src="'views/widget/widget-youtube.view.client.html'"></div>-->
+            <!--</div>-->
+            <!--</div>-->
+        <div ng-include="'views/widget/widget-' + model.widget.type + '.view.client.html'"></div>
     </form>
-    <form action="/api/uploads"  method="post" enctype="multipart/form-data">
-        <input  name="myFile"   type="file" class="form-control"/>
-        <input  name="width"    value="{{model.width}}" style="display: none"/>
-        <input  name="widgetId" value="{{model.wgid}}"   style="display: none"/>
-        <input  name="userId" value="{{model.uid}}" style="display: none"/>
-        <input  name="pageId" value="{{model.pid}}" style="display: none"/>
-        <input  name="websiteId" value="{{model.wid}}" style="display: none"/>
-        <button type="submit"   class="btn btn-block btn-primary">Upload</button>
-    </form>
+    <!--<form action="/api/uploads"  method="post" enctype="multipart/form-data">-->
+        <!--<input  name="myFile"   type="file" class="form-control"/>-->
+        <!--<input  name="width"    value="{{model.width}}" style="display: none"/>-->
+        <!--<input  name="widgetId" value="{{model.wgid}}"   style="display: none"/>-->
+        <!--<input  name="userId" value="{{model.uid}}" style="display: none"/>-->
+        <!--<input  name="pageId" value="{{model.pid}}" style="display: none"/>-->
+        <!--<input  name="websiteId" value="{{model.wid}}" style="display: none"/>-->
+        <!--<button type="submit"   class="btn btn-block btn-primary">Upload</button>-->
+    <!--</form>-->
 
 </div>
 
 
 
 
-<nav class="navbar navbar-default navbar-fixed-bottom">
-    <div class="container-fluid">
-        <div class="navbar-footer">
-            <p class="navbar-text pull-right">
-                <a href="#/user/{{model.uid}}" class="navbar-link">
-                    <span class="glyphicon glyphicon-user"></span></a></p>
-        </div>
-    </div>
-</nav>
+<!--<nav class="navbar navbar-default navbar-fixed-bottom">-->
+    <!--<div class="container-fluid">-->
+        <!--<div class="navbar-footer">-->
+            <!--<p class="navbar-text pull-right">-->
+                <!--<a href="#/user/{{model.uid}}" class="navbar-link">-->
+                    <!--<span class="glyphicon glyphicon-user"></span></a></p>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</nav>-->

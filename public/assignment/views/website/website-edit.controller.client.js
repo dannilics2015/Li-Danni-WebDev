@@ -10,10 +10,10 @@
     function WebsiteEditController($routeParams, WebsiteService, $location) {
         var vm = this;
 
-        var websiteId =parseInt($routeParams.wid);
+        var websiteId = $routeParams.wid;
         vm.wid = websiteId;
 
-        var userId =parseInt($routeParams.uid);
+        var userId = $routeParams.uid;
         vm.uid = userId;
 
         vm.deleteWebsite = deleteWebsite;
@@ -45,8 +45,18 @@
         }
 
         function updateWebsite() {
-            WebsiteService.updateWebsite(websiteId, vm.website);
-            $location.url("/user/" + userId + "/website");
+            // WebsiteService.updateWebsite(websiteId, vm.website);
+            // $location.url("/user/" + userId + "/website");
+            var upwebsite = {};
+            upwebsite["_id"] = vm.wid;
+            upwebsite["name"] = document.getElementById('name').value;
+            upwebsite["description"] = document.getElementById('description').value;
+            upwebsite["developerId"] = vm.uid;
+            WebsiteService
+                .updateWebsite(websiteId, upwebsite)
+                .success(function(website) {
+                    $location.url("/user/" + userId + "/website");
+                });
         }
 
         function findWebsiteById(websiteId) {

@@ -8,8 +8,8 @@
 
     function PageNewController($routeParams, PageService, $location) {
         var vm = this;
-        var websiteId =parseInt($routeParams.wid);
-        var userId = parseInt($routeParams.uid);
+        var websiteId = $routeParams.wid;
+        var userId =  $routeParams.uid;
         vm.wid = websiteId;
         vm.uid = userId;
 
@@ -27,6 +27,19 @@
         init();
 
         function createPage(websiteId, page) {
+            // var promise = PageService.createPage(websiteId, page);
+            // promise
+            //     .success(function (page) {
+            //         $location.url("/user/" + userId + "/website/" + websiteId + "/page");
+            //     })
+            //     .error(function (error) {
+            //         console.log("create page error");
+            //     });
+            var page ={};
+            var name = document.getElementById('name').value;
+            var title = document.getElementById('title').value;
+            page["name"] = name;
+            page["title"] = title;
             var promise = PageService.createPage(websiteId, page);
             promise
                 .success(function (page) {
