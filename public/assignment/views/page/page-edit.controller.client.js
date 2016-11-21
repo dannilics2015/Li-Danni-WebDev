@@ -51,12 +51,12 @@
             var page ={};
             var name = document.getElementById('name').value;
             var title = document.getElementById('title').value;
-            page["_id"] = vm.pid;
-            page["name"] = name;
-            page["title"] = title;
-            page["websiteId"] = vm.wid;
-            PageService.updatePage(pageId, page);
-            $location.url("/user/" + userId + "/website/" + websiteId + "/page");
+            page._id = vm.pid;
+            page.name = name;
+            page.title = title;
+            page.websiteId = vm.wid;
+            // PageService.updatePage(pageId, page);
+            // $location.url("/user/" + userId + "/website/" + websiteId + "/page");
             PageService.updatePage(vm.pid, vm.page)
                 .success(function() {
                     $location.url("/user/" + userId + "/website/" + websiteId + "/page");

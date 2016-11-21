@@ -48,10 +48,10 @@
             // WebsiteService.updateWebsite(websiteId, vm.website);
             // $location.url("/user/" + userId + "/website");
             var upwebsite = {};
-            upwebsite["_id"] = vm.wid;
-            upwebsite["name"] = document.getElementById('name').value;
-            upwebsite["description"] = document.getElementById('description').value;
-            upwebsite["developerId"] = vm.uid;
+            upwebsite._id = vm.wid;
+            upwebsite.name = document.getElementById('name').value;
+            upwebsite.description = document.getElementById('description').value;
+            upwebsite.developerId = vm.uid;
             WebsiteService
                 .updateWebsite(websiteId, upwebsite)
                 .success(function(website) {

@@ -38,8 +38,8 @@
             var page ={};
             var name = document.getElementById('name').value;
             var title = document.getElementById('title').value;
-            page["name"] = name;
-            page["title"] = title;
+            page.name = name;
+            page.title = title;
             var promise = PageService.createPage(websiteId, page);
             promise
                 .success(function (page) {

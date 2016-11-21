@@ -33,8 +33,8 @@
             var description = document.getElementById('description').value;
             if(name != "") {
                 var website = {};
-                website["name"] = name;
-                website["description"] = description;
+                website.name = name;
+                website.description = description;
                 var promise = WebsiteService.createWebsite(vm.uid, website);
                 promise
                     .success(function(website){

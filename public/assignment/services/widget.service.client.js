@@ -73,27 +73,6 @@
             return $http.put(url, widget);
         }
 
-        // function updateHeader(widgetId, widget){
-        //     // for (var i=0; i <widgets.length; i++) {
-        //     //     if (widgets[i]._id == widgetId) {
-        //     //         widgets[i].size = widget.size;
-        //     //         widgets[i].text = widget.text;
-        //     //     }
-        //     // }
-        //     var url = "/api/widget/" + widgetId;
-        //     return $http.put(url, widget);
-        // }
-        //
-        // function updateImage(widgetId, widget){
-        //     var url = "/api/widget/" + widgetId;
-        //     return $http.put(url, widget);
-        // }
-        //
-        // function updateYoutube(widgetId, widget){
-        //
-        //     var url = "/api/widget/" + widgetId;
-        //     return $http.put(url, widget);
-        // }
 
         function deleteWidget(widgetId){
             // for (var i=0; i<widgets.length; i++) {
