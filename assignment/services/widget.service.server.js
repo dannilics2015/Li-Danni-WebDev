@@ -45,7 +45,6 @@ module.exports = function(app, model) {
             .then(
                 function(widgets){
                     if(widgets){
-                        //widget["priority"] = parseInt(widgets.length + 1);
                         model
                             .widgetModel
                             .createWidget(pid, widget)
@@ -127,55 +126,6 @@ module.exports = function(app, model) {
             );
     }
 
-    // function updateHeader(req, res) {
-    //     var widget = req.body;
-    //     var widgetId = req.params.wgid;
-    //     // for(var w in widgets) {
-    //     //     if(widgets[w]._id == widgetId) {
-    //     //         widgets[w] = widget;
-    //     //         res.send(widgets[w]);
-    //     //         return;
-    //     //     }
-    //     // }
-    //     // res.send('0');
-    //     model
-    //         .widgetModel
-    //         .updateHeader(widgetId, widget)
-    //         .then(
-    //             function(status){
-    //                 res.sendStatus(200);
-    //             },
-    //             function(error){
-    //                 res.sendStatus(400).send(error);
-    //             }
-    //         );
-    // }
-
-
-    // function updateImage(req, res) {
-    //     var widget = req.body;
-    //     var widgetId = req.params.wgid;
-    //     // for(var w in widgets) {
-    //     //     if(widgets[w]._id == widgetId) {
-    //     //         widgets[w] = widget;
-    //     //         res.send(widgets[w]);
-    //     //         return;
-    //     //     }
-    //     // }
-    //     // res.send('0');
-    //     model
-    //         .widgetModel
-    //         .updateImage(widgetId, widget)
-    //         .then(
-    //             function(status){
-    //                 res.sendStatus(200);
-    //             },
-    //             function(error){
-    //                 res.sendStatus(400).send(error);
-    //             }
-    //         );
-    // }
-
     function deleteWidget(req, res) {
         var widgetId = req.params.wgid;
         // for (var i = 0; i < widgets.length; i++) {
@@ -218,26 +168,26 @@ module.exports = function(app, model) {
         // res.send(myFile);
     }
 
-    function sortWidget(req, res) {
-        var pageId = req.params.pid;
-        var start = req.query.start;
-        var end = req.query.end;
-        var pageWidgets = -1;
-        // for(var w in widgets) {
-        //     if(widgets[w].pageId == pageId) {
-        //         pageWidgets++;
-        //         if(start == pageWidgets) {
-        //             var startIndex = w;
-        //         }
-        //         if(end == pageWidgets) {
-        //             var endIndex = w;
-        //         }
-        //     }
-        // }
-        // var order = widgets.splice(startIndex, 1)[0];
-        // widgets.splice(endIndex, 0, order);
-        // res.send('200');
-    }
+    // function sortWidget(req, res) {
+    //     var pageId = req.params.pid;
+    //     var start = req.query.start;
+    //     var end = req.query.end;
+    //     var pageWidgets = -1;
+    //     // for(var w in widgets) {
+    //     //     if(widgets[w].pageId == pageId) {
+    //     //         pageWidgets++;
+    //     //         if(start == pageWidgets) {
+    //     //             var startIndex = w;
+    //     //         }
+    //     //         if(end == pageWidgets) {
+    //     //             var endIndex = w;
+    //     //         }
+    //     //     }
+    //     // }
+    //     // var order = widgets.splice(startIndex, 1)[0];
+    //     // widgets.splice(endIndex, 0, order);
+    //     // res.send('200');
+    // }
     function sortWidget(req, res) {
         var pageId = req.params.pid;
         var start = req.query.start;
