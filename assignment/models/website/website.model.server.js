@@ -19,7 +19,7 @@ module.exports = function() {
 
     function createWebsite(uid, website) {
 
-        website["_user"] = uid;
+        website._user = uid;
         return WebsiteModel.create(website);
     }
 
@@ -41,13 +41,8 @@ module.exports = function() {
     function updateWebsite(websiteId, website){
         return WebsiteModel
             .update(
-                {
-                    _id: websiteId
-                },
-                {
-                    name: website.name,
-                    description: website.description
-                }
+                {_id: websiteId},
+                {name: website.name, description: website.description}
             );
     }
     function deleteWebsite(websiteId){

@@ -12,6 +12,7 @@
 </nav>
 
 <div class="container-fluid paddingWheader">
+    <form>
     <label for="name">Name</label>
     <input ng-model="model.widget.name" id = "name" type="text" class="form-control" placeholder="name"/>
     <label for="text">Text</label>
@@ -20,15 +21,24 @@
     <input ng-model="model.widget.url" id = "url" type="basic-url" class="form-control" placeholder="http://www/youtube.com"/>
     <label for="width">Width</label>
     <input ng-model="model.widget.width" id = "width" type="percentage" class="form-control" placeholder="100%"/>
-    <label for="upload">URL</label>
-    <input ng-model="model.widget.upload" id = "upload" type="file" class="form-control" placeholder="No File Choosen"/>
-
+    <!--<label for="upload">URL</label>-->
+    <!--<input ng-model="model.widget.upload" id = "upload" type="file" class="form-control" placeholder="No File Choosen"/>-->
+    </form>
+    <form action="/api/uploads"  method="post" enctype="multipart/form-data">
+        <input  name="myFile"   type="file" class="form-control"/>
+        <input  name="width"    value="{{model.width}}" style="display: none"/>
+        <input  name="widgetId" value="{{model.wgid}}"   style="display: none"/>
+        <input  name="userId" value="{{model.uid}}" style="display: none"/>
+        <input  name="pageId" value="{{model.pid}}" style="display: none"/>
+        <input  name="websiteId" value="{{model.wid}}" style="display: none"/>
+        <button type="submit"   class="btn btn-block btn-primary">Upload</button>
+    </form>
 
 
 
 
     <div>
-        <a ng-click="model.updateWidget()" class="btn btn-success btn-default btn-block space">Update</a>
+        <!--<a ng-click="model.updateWidget()" class="btn btn-success btn-default btn-block space">Update</a>-->
         <a ng-click="model.deleteWidget()" class="btn btn-danger btn-default btn-block space">Delete</a>
     </div>
 </div>

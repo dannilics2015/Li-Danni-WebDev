@@ -33,14 +33,8 @@ module.exports = function() {
     function updateUser(userId, user) {
         return UserModel
             .update(
-                {
-                    _id: userId
-                },
-                {
-                    firstname: user.firstname,
-                    lastname: user.lastname,
-                    email: user.email
-                }
+                {_id: userId},
+                {firstname: user.firstname, lastname: user.lastname, email: user.email}
             );
     }
 

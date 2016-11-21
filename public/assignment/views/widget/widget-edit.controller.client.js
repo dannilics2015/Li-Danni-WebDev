@@ -49,13 +49,25 @@
                 newWidget.width = document.getElementById('width').value;
                 var imageurl = document.getElementById('url').value;
                 newWidget.url = imageurl;
-
             }
             else if(vm.widget.type == "YOUTUBE") {
                 newWidget.name = document.getElementById('name').value;
                 newWidget.text = document.getElementById('text').value;
                 newWidget.url = document.getElementById('url').value;
                 newWidget.width = document.getElementById('width').value;
+            }
+            else if(vm.widget.type == "HTML") {
+                // console.log(document.getElementById('text').value);
+                // console.log(document.getElementById('name').value);
+                newWidget.name = document.getElementById('name').value;
+                newWidget.text = document.getElementById('text').value;
+            }
+            else if(vm.widget.type == "TEXT") {
+                //console.log(document.getElementById('text').value);
+                newWidget.text = document.getElementById('text').value;
+                newWidget.rows = document.getElementById('rows').value;
+                newWidget.placeholder = document.getElementById('placeholder').value;
+                newWidget.formatted = document.getElementById('formatted').value;
             }
 
             newWidget.type = vm.widget.type;
@@ -72,65 +84,8 @@
                     });
         }
 
-        // function updateHeader() {
-        //     var newWidget = {};
-        //     newWidget.name = document.getElementById('name').value;
-        //     newWidget.text = document.getElementById('text').value;
-        //     newWidget.size = document.getElementById('size').value;
-        //     newWidget.id = vm.wgid;
-        //     newWidget.pageId = vm.pid;
-        //     WidgetService
-        //         .updateHeader(vm.wgid, newWidget)
-        //         .success(function(widget) {
-        //             $location.url("/user/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget" );
-        //
-        //         })
-        //         .catch(function(error){
-        //             console.log(error);
-        //         });
-        // }
-        //
-        // function updateImage() {
-        //     var newWidget = {};
-        //     newWidget.name = document.getElementById('name').value;
-        //     newWidget.text = document.getElementById('text').value;
-        //     newWidget.width = document.getElementById('width').value;
-        //     var imageurl = document.getElementById('url').value;
-        //     newWidget.id = vm.wgid;
-        //     newWidget.pageId = vm.pid;
-        //     newWidget.url = imageurl;
-        //     WidgetService
-        //         .updateImage(vm.wgid, newWidget)
-        //         .success(function(widget) {
-        //             $location.url("/user/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget" );
-        //
-        //         })
-        //         .catch(function(error){
-        //             console.log(error);
-        //         });
-        // }
-        //
-        // function updateYoutube() {
-        //     var newWidget = {};
-        //     newWidget.name = document.getElementById('name').value;
-        //     newWidget.text = document.getElementById('text').value;
-        //     newWidget.url = document.getElementById('url').value;
-        //     newWidget.width = document.getElementById('width').value;
-        //     newWidget.id = vm.wgid;
-        //     newWidget.pageId = vm.pid;
-        //     WidgetService
-        //         .updateYoutube(vm.wgid, newWidget)
-        //         .success(function(widget) {
-        //             $location.url("/user/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget" );
-        //
-        //         })
-        //         .catch(function(error){
-        //             console.log(error);
-        //         });
-        // }
-
         function createWidget(pageId, widget) {
-            // if(widget.widgetType == 'HEADER' && widget.size == null) {
+            // if(widget.type == "HEADER" && widget.size == "") {
             //     widget.size = 3;
             // }
             // var newWidget = WidgetService.createWidget(pageId, widget);

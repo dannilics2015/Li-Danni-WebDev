@@ -11,19 +11,26 @@
 
 <div class="container-fluid paddingWheader">
     <form>
-        <!--<div ng-switch="model.widget.type">-->
-            <!--<div ng-switch-when="HEADER">-->
-                <!--<div ng-include src="'views/widget/widget-header.view.client.html'"></div>-->
-            <!--</div>-->
+        <div ng-switch="model.widget.type">
+            <div ng-switch-when="HEADER">
+                <div ng-include src="'views/widget/widget-header.view.client.html'"></div>
+            </div>
 
-            <!--<div ng-switch-when="IMAGE">-->
-                <!--<div ng-include src="'views/widget/widget-image.view.client.html'"></div>-->
-            <!--</div>-->
-            <!--<div ng-switch-when="YOUTUBE">-->
-                <!--<div ng-include src="'views/widget/widget-youtube.view.client.html'"></div>-->
-            <!--</div>-->
-            <!--</div>-->
-        <div ng-include="'views/widget/widget-' + model.widget.type + '.view.client.html'"></div>
+            <div ng-switch-when="IMAGE">
+                <div ng-include src="'views/widget/widget-image.view.client.html'"></div>
+            </div>
+            <div ng-switch-when="YOUTUBE">
+                <div ng-include src="'views/widget/widget-youtube.view.client.html'"></div>
+            </div>
+            <div ng-switch-when="HTML">
+                <div ng-include src="'views/widget/widget-html.view.client.html'"></div>
+            </div>
+            <div ng-switch-when="TEXT">
+                <div ng-include src="'views/widget/widget-text.view.client.html'"></div>
+
+            </div>
+            </div>
+        <!--<div ng-include="'views/widget/widget-' + model.widget.type + '.view.client.html'"></div>-->
     </form>
     <!--<form action="/api/uploads"  method="post" enctype="multipart/form-data">-->
         <!--<input  name="myFile"   type="file" class="form-control"/>-->

@@ -1,0 +1,38 @@
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <!--<p class="navbar-text pull-right"><a ng-click="model.updateWidget(model.widget._id, {widgetType: 'HEADER', text: model.widget.text, size: model.widget.size})" class="navbar-link"><span class="glyphicon glyphicon-ok"></span></a></p>-->
+        <p class="navbar-text pull-right"><a ng-click="model.updateWidget()" class="navbar-link"><span class="glyphicon glyphicon-ok"></span></a></p>
+
+        <p class="navbar-text pull-left"><a href="#/user/{{model.uid}}/website/{{model.wid}}/page/{{model.pid}}/widget" class="navbar-link"><span class="glyphicon glyphicon-arrow-left"></span></a></p>
+        <div class="navbar-header">
+            <a class="navbar-brand">Edit Widget</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid paddingWheader">
+<form>
+    <label for="name">Name</label>
+    <input ng-model="model.widget.name" id = "name" type="text" class="form-control" placeholder="name"/>
+    <div ng-model="model.widget.text" id="text"
+         text-angular
+         ta-toolbar="[['h1','h2','h3'],['bold','italics','underline','strikeThrough'],
+        ['ul','ol'],['justifyLeft','justifyCenter','justifyRight','justifyFull'],
+        ['indent','outdent'],['html']]">
+    </div>
+</form>
+    <div>
+        <a ng-click="model.deleteWidget()" class="btn btn-danger btn-default btn-block">Delete</a>
+    </div>
+</div>
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+        <div class="navbar-footer">
+            <p class="navbar-text pull-right">
+                <a href="#/user/{{model.uid}}" class="navbar-link">
+                    <span class="glyphicon glyphicon-user"></span></a></p>
+        </div>
+    </div>
+</nav>

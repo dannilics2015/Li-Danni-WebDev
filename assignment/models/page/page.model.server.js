@@ -16,7 +16,7 @@ module.exports = function(){
     return api;
 
     function createPage(websiteId, page){
-        page["_website"] = websiteId;
+        page._website = websiteId;
         return PageModel.create(page);
     }
 
@@ -35,22 +35,14 @@ module.exports = function(){
     function updatePage(pageId, page){
         return PageModel
             .update(
-                {
-                    _id: pageId
-                },
-                {
-                    name: page.name,
-                    title: page.title,
-                    description: page.description
-                }
+                {_id: pageId},
+                {name: page.name, title: page.title, description: page.description}
             );
     }
 
     function deletePage(pageId){
         return PageModel
-            .remove({
-                _id: pageId
-            })
+            .remove({_id: pageId})
     }
 };
 
