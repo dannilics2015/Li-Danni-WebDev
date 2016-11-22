@@ -11,7 +11,8 @@
         vm.login = login;
 
         function login(username, password) {
-            var promise = UserService.findUserByCredentials(username, password);
+            // var promise = UserService.findUserByCredentials(username, password);
+            var promise = UserService.login(username, password);
             promise
                 .success(function (user) {
                     if (user == "") {
@@ -25,7 +26,6 @@
                 .error(function () {
                     console.log("login error");
                 });
-
         }
     }
 

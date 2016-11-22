@@ -12,6 +12,7 @@
         vm.uid = userId;
         vm.updateUser = updateUser;
         vm.deleteUser = deleteUser;
+        vm.logout = logout;
 
         function init() {
             UserService.findUserById(userId)
@@ -40,6 +41,13 @@
             .error(function() {
 
             })
+        }
+
+        function logout() {
+            UserService.logout()
+                .success(function(){
+                    $location.url("/login");
+                });
         }
     }
 })();

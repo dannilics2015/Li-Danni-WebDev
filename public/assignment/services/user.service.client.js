@@ -1,4 +1,4 @@
-/**
+ /**
  * Created by LiDanni on 10/5/16.
  */
 (function() {
@@ -14,7 +14,10 @@
             findUserByUsername : findUserByUsername,
             findUserByCredentials : findUserByCredentials,
             updateUser : updateUser,
-            deleteUser : deleteUser
+            deleteUser : deleteUser,
+            login : login,
+            checkLogin: checkLogin,
+            logout: logout
     };
         return api;
 
@@ -28,12 +31,14 @@
         }
 
         function findUserByUsername(username) {
-            for (var i in users) {
-                if(users[i].username === username) {
-                    return users[i];
-                }
-            }
-            return null;
+            // for (var i in users) {
+            //     if(users[i].username === username) {
+            //         return users[i];
+            //     }
+            // }
+            // return null;
+            var url = "/api/user/" + username;
+            return $http.get(url);
         }
 
         function findUserByCredentials(username, password){
@@ -51,6 +56,22 @@
 
             var url = "/api/user/" + userId;
             return $http.delete(url);
+        }
+
+        function login(username, password){
+            var user = {
+                username: username,
+                password: password
+            };
+            return $http.post("/api/login", user);
+        }
+
+        function checkLogin() {
+            return $http.post("/api/checkLogin");
+        }
+
+        function logout() {
+            return $http.post("/api/logout");
         }
     }
 })();

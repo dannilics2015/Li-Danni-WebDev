@@ -9,6 +9,7 @@ module.exports = function () {
         password: String,
         firstname: String,
         lastname: String,
+        //role: {type: String, enum:['ADMIN', 'STUDENT', 'FACULTY']},
         email: String,
         phone: String,
         websites: [WebsiteSchema],
