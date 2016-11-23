@@ -6,14 +6,18 @@
         .module("WebAppMaker")
         .controller("RegisterController", RegisterController);
 
-    function RegisterController($routeParams, UserService, $location) {
+    function RegisterController($routeParams, UserService, $location, $rootScope) {
         var vm = this;
         vm.createUser = createUser;
+        vm.register = register;
 
         function createUser(user) {
             UserService
                 .createUser(user)
+                //.register(user)
                 .success(function(user) {
+                    var user = user.data;
+                    $rootScope.currentUser = user;
                     $location.url("/user/" + user._id);
                 });
             // if(vm.password == vm.passwordVerify) {
@@ -27,6 +31,17 @@
             //         })
             // }
             // else vm.error = "Passowrd doesn't match";
+        }
+
+        function register(user) {
+            UserService
+                .createUser(user)
+                //.register(user)
+                .success(function (user) {
+                    // var user = user.data;
+                    // $rootScope.currentUser = user;
+                    $location.url("/user/" + user._id);
+                });
         }
     }
 })();

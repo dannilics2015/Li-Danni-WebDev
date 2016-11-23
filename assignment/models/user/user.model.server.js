@@ -12,9 +12,11 @@ module.exports = function() {
         findUserById: findUserById,
         updateUser: updateUser,
         findUserByCredentials: findUserByCredentials,
+        findUserByUsername : findUserByUsername,
     //    findAllWebsitesForUser: findAllWebsitesForUser,
         deleteUser : deleteUser,
-        setModel: setModel
+        setModel : setModel,
+        findUserByFacebookId : findUserByFacebookId
     };
     return api;
 
@@ -45,6 +47,12 @@ module.exports = function() {
         });
     }
 
+    function findUserByUsername(username) {
+        return UserModel.findOne( {
+            username: username
+        })
+    }
+
     function deleteUser(userId) {
         return UserModel.remove({_id: userId});
     }
@@ -55,4 +63,8 @@ module.exports = function() {
     //             return user.websites;
     //         })
     // }
+
+    function findUserByFacebookId(facebookId) {
+        return UserModel.findOne({'facebook.id' : facebookId});
+    }
 };
