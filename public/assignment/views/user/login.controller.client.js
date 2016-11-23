@@ -21,9 +21,9 @@
                     else {
                         $location.url("/user/" + user._id);
                     }
-
             })
                 .error(function () {
+                    vm.error = "Password doesn't match"
                     console.log("login error");
                 });
         }

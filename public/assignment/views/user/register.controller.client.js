@@ -15,7 +15,7 @@
             UserService
                 .createUser(user)
                 //.register(user)
-                .success(function(user) {
+                .success(function (user) {
                     var user = user.data;
                     $rootScope.currentUser = user;
                     $location.url("/user/" + user._id);
@@ -34,14 +34,21 @@
         }
 
         function register(user) {
-            UserService
-                .createUser(user)
-                //.register(user)
-                .success(function (user) {
-                    // var user = user.data;
-                    // $rootScope.currentUser = user;
-                    $location.url("/user/" + user._id);
-                });
+            if (vm.password != vm.passwordVerify) {
+                vm.error = "Passowrd doesn't match";
+            } else {
+                UserService
+                //.createUser(user)
+                    .register(user)
+                    .success(function (user) {
+                        // var user = user.data;
+                        // $rootScope.currentUser = user;
+                        $location.url("/user/" + user._id);
+                    })
+                    .error(function (error) {
+                        vm.error = "Username already exist";
+                    })
+            }
         }
     }
 })();

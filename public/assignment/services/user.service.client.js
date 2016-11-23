@@ -18,7 +18,7 @@
             login : login,
             checkLogin: checkLogin,
             logout: logout,
-//            register : register
+            register : register
     };
         return api;
 
@@ -75,8 +75,13 @@
             return $http.post("/api/logout");
         }
 
-        // function register(user) {
-        //     return $http.post("/api/register", user);
-        // }
+        //create an user and login them in with passport
+        function register(user) {
+            var user = {
+                username: user.username,
+                password: user.password
+            };
+            return $http.post("/api/register", user);
+        }
     }
 })();
