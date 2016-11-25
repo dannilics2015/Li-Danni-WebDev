@@ -6,8 +6,8 @@ module.exports = function(app, model) {
 
     var passport      = require('passport');
     var LocalStrategy = require('passport-local').Strategy;
-    var FacebookStrategy = require('passport-facebook').Strategy;
-    var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+    // var FacebookStrategy = require('passport-facebook').Strategy;
+    // var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
     var cookieParser  = require('cookie-parser');
     var session       = require('express-session');
     var bcrypt = require("bcrypt-nodejs");
@@ -18,6 +18,7 @@ module.exports = function(app, model) {
         saveUninitialized: true
     }));
 
+
     app.use(cookieParser());
     app.use(passport.initialize());
     app.use(passport.session());
@@ -26,6 +27,16 @@ module.exports = function(app, model) {
     //passport.use(new FacebookStrategy(facebookConfig, facebookStrategy));
     passport.serializeUser(serializeUser);
     passport.deserializeUser(deserializeUser);
+
+
+    //facebook
+    // var facebookConfig = {
+    //     clientID     : process.env.FACEBOOK_CLIENT_ID,
+    //     clientSecret : process.env.FACEBOOK_CLIENT_SECRET,
+    //     callbackURL  : "http://localhost:3000/auth/facebook/callback"
+    // };
+    //
+    // console.log(facebookConfig.callbackURL);
 
     app.post('/api/user', createUser);
     app.get('/api/user', findUser);
@@ -37,6 +48,13 @@ module.exports = function(app, model) {
     app.post('/api/logout', logout);
     app.post('/api/register', register);
     app.get ('/auth/facebook', passport.authenticate('facebook', { scope : 'email' }));
+    //app.get("/auth/facebook", facebookAuth);
+    app.get('/auth/facebook/callback',
+        passport.authenticate('facebook', {
+            successRedirect: '/#/profile',
+            failureRedirect: '/#/login'
+        }));
+
 
     function createUser(req, res) {
         var user = req.body;
@@ -330,4 +348,10 @@ module.exports = function(app, model) {
         }
     }
 
-};
+    // function facebookStrategy(token, refreshToken, profile, done) {
+    //     console.log(profile);
+    //     developerModel
+    //         .findUserByFacebookId(profile.id)
+    // }
+
+    };

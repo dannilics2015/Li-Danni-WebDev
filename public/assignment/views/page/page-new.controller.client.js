@@ -37,9 +37,15 @@
             //     });
             var page ={};
             var name = document.getElementById('name').value;
+            console.log(name);
             var title = document.getElementById('title').value;
             page.name = name;
             page.title = title;
+            if(name == "") {
+                console.log("empty name");
+                vm.error = "please enter valid page name";
+                return;
+            }
             var promise = PageService.createPage(websiteId, page);
             promise
                 .success(function (page) {

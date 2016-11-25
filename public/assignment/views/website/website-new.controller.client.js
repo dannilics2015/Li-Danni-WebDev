@@ -31,6 +31,10 @@
         function createWebsite() {
             var name = document.getElementById('name').value;
             var description = document.getElementById('description').value;
+            if(name == "") {
+                vm.error = "please enter valid website name";
+                return;
+            }
             if(name != "") {
                 var website = {};
                 website.name = name;

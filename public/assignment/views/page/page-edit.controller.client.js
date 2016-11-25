@@ -57,6 +57,10 @@
             page.websiteId = vm.wid;
             // PageService.updatePage(pageId, page);
             // $location.url("/user/" + userId + "/website/" + websiteId + "/page");
+            if(name == "") {
+                vm.error = "please enter valid page name";
+                return;
+            }
             PageService.updatePage(vm.pid, vm.page)
                 .success(function() {
                     $location.url("/user/" + userId + "/website/" + websiteId + "/page");

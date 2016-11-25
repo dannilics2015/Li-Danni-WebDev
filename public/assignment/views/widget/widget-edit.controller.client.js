@@ -73,6 +73,10 @@
             newWidget.type = vm.widget.type;
             newWidget._id = vm.wgid;
                 newWidget.pageId = vm.pid;
+            if(newWidget.name == "") {
+                vm.error = "please enter valid widget name";
+                return;
+            }
                 WidgetService
                     .updateWidget(vm.wgid, newWidget)
                     .success(function(widget) {

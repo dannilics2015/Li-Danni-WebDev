@@ -12,7 +12,12 @@
 </nav>
 
 <div class="container-fluid paddingWheader">
-<form>
+
+    <div ng-show="model.error" class="alert alert-danger" role="alert">
+        {{model.error}}
+    </div>
+
+    <form>
     <label for="name">Name</label>
     <input ng-model="model.widget.name" id = "name" type="text" class="form-control" placeholder="name"/>
     <div ng-model="model.widget.text" id="text"

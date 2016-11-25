@@ -24,6 +24,10 @@
 
 <!--content-->
 <div class="container-fluid paddingWheader">
+    <div ng-show="model.error" class="alert alert-danger" role="alert">
+        {{model.error}}
+    </div>
+
     <div class="row ">
         <div class="col-sm-4 hidden-xs">
             <div class="blueFont container-fluid">

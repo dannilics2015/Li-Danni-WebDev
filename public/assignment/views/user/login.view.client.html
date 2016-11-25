@@ -6,8 +6,8 @@
 
     <h1>Login</h1>
     <div class="padding">
-        <input type="text" ng-model="model.username" class="form-control" placeholder="Username"/>
-        <input type="password" ng-model="model.password" class="form-control" placeholder="Password"/>
+        <input type="text" ng-model="model.username" class="form-control ng-valid" placeholder="Username"/>
+        <input type="password" ng-model="model.password" class="form-control ng-valid " placeholder="Password"/>
 
         <a ng-click="model.login(model.username, model.password)" class="btn btn-success btn-default btn-block">Login</a>
         <a href="/auth/facebook" class="btn btn-primary btn-block"><span class="fa fa-facebook"></span>Facebook</a>

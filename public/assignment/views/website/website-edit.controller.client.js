@@ -52,6 +52,10 @@
             upwebsite.name = document.getElementById('name').value;
             upwebsite.description = document.getElementById('description').value;
             upwebsite.developerId = vm.uid;
+            if(upwebsite.name == "") {
+                vm.error = "please enter valid website name";
+                return;
+            }
             WebsiteService
                 .updateWebsite(websiteId, upwebsite)
                 .success(function(website) {

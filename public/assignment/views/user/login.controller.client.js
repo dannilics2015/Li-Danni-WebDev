@@ -10,8 +10,9 @@
         var vm = this;
         vm.login = login;
 
+
         function login(username, password) {
-            // var promise = UserService.findUserByCredentials(username, password);
+            //var promise = UserService.findUserByCredentials(username, password);
             var promise = UserService.login(username, password);
             promise
                 .success(function (user) {
@@ -26,6 +27,7 @@
                     vm.error = "Password doesn't match"
                     console.log("login error");
                 });
+
         }
     }
 
