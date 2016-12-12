@@ -1,0 +1,205 @@
+<!--begin photo slider section-->
+<div class="flexslider container-fluid slider-backgroud-image" flexslider>
+    <ul class="slides">
+        <li>
+            <img src="http://anccbellevue.org/wp-content/uploads/2015/11/bgnight.jpg" />
+            <p class="flex-caption">It is Board Game Night!</p>
+        </li>
+        <li>
+            <img src="http://happywithgame.com/wp-content/uploads/2015/05/classic-game-wallpaper-exdnaarh.jpg" />
+            <p class="flex-caption">I am Happy with Board Game</p>
+        </li>
+        <li>
+            <img src="https://na.merch.riotgames.com/media/catalog/product/m/v/mvm_closeup_1_1.jpg" />
+            <p class="flex-caption">Let's Have Some Fun</p>
+        </li>
+        <li>
+            <img src="https://s-media-cache-ak0.pinimg.com/originals/ab/67/b7/ab67b77b65d0d2e03f752ad776a2475a.jpg" />
+            <p class="flex-caption">This Could Be Interesting</p>
+        </li>
+    </ul>
+</div>
+<!--end photo slider section-->
+
+<!--Begin navigation bar-->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand">Seattle Board Game Group</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#/homepage/{{model.user.username}}">Home</a></li>
+                <!--Begin Profile Dropdown-->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown">Profile <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#/user"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Account</a></li>
+                        <li>
+                            <a href="#/homepage/{{model.user.username}}/message"><i class="fa fa-envelope" aria-hidden="true"></i> Mailbox</a></li>
+                        <li>
+                            <a href="#/homepage/{{model.user.username}}/collection"><i class="fa fa-archive" aria-hidden="true"></i> Collections</a></li>
+                        <li><a href="#"><i class="fa fa-history" aria-hidden="true"></i> Trade History</a></li>
+                        <li><a ng-click="model.logout()"><i class="fa fa-sign-out" aria-hidden="true"></i> Sign Out</a></li>
+                    </ul>
+                </li>
+                <!--End Profile Dropdown-->
+                <!--Begin Search Dropdown-->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown">Search <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#/homepage/{{model.use.username}}/hot"><i class="fa fa-fire" aria-hidden="true"></i> Hot</a></li>
+                        <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i> Find a Game</a></li>
+                    </ul>
+                </li>
+                <!--End Search Dropdown-->
+                <!--Begin Trade Dropdown-->
+                <li class="dropdown active">
+                    <a class="dropdown-toggle" data-toggle="dropdown">Trades <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#/homepage/{{model.user.username}}/collection"><i class="fa fa-archive" aria-hidden="true"></i> See My Collections</a></li>
+                        <li><a href="#/homepage/{{model.user.username}}/search/all"><i class="fa fa-hdd-o" aria-hidden="true"></i> See All Collections</a></li>
+                        <li><a href="#/homepage/{{model.user.username}}/search"><i class="fa fa-search-plus" aria-hidden="true"></i> Search a Collection</a></li>
+                    </ul>
+                </li>
+                <!--End Trade Dropdown-->
+            </ul>
+        </div>
+    </div>
+</nav>
+<!--End navigation bar-->
+
+
+<!-- Page Content -->
+<div class="container">
+
+    <!-- Marketing Icons Section -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header text-bling">
+                Welcome {{model.user.username}} !
+            </h1>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4><i class="fa fa-fw fa-check"></i> Home</h4>
+                </div>
+                <div class="panel-body">
+                    <p>Here you will learn more about the website app and how to utilize every resource in this app</p>
+                    <a href="#/homepage/{{model.user.username}}" class="btn btn-default">Learn More</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4><i class="fa fa-fw fa-gift"></i> Hot and New</h4>
+                </div>
+                <div class="panel-body">
+                    <p>Here you will find out what is new and what popular board games other people are playing</p>
+                    <!--<a href="#/user/{{model.uid}}/homepage/page" class="btn btn-default">Learn More</a>-->
+                    <a href="#/homepage/{{model.user.username}}/hot" class="btn btn-default">Learn More</a>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4><i class="fa fa-fw fa-compass"></i> Trade</h4>
+                </div>
+                <div class="panel-body">
+                    <p>Here you will find out what interesting board game other users may have and trade with them</p>
+                    <a href="#/homepage/{{model.user.username}}/trade" class="btn btn-default">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.row -->
+
+    <!--Begin Hot Games Display -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h2 class="page-header">Recent Hot Games</h2>
+        </div>
+        <div class="col-md-2 col-sm-4" ng-repeat="game in model.games | limitTo:30">
+            <a href="#/user/homepage/{{model.user.username}}/page/{{game.gameId}}">
+                <img class="img-responsive img-portfolio img-hover" ng-src="{{game.thumbnail}}" height="100px"/></a>
+        </div>
+    </div>
+    <!--End Hot Games Display -->
+
+    <!-- Features Section -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h2 class="page-header">Seattle Board Game Group Features</h2>
+        </div>
+        <div class="col-md-6">
+            <p>Features includes:</p>
+            <ul>
+                <li><strong>Trade Board Games with Others</strong></li>
+                <li>Mange Your Own Game Collections</li>
+                <li>Search the Hot Board Games</li>
+                <li>See What Other Users Have in Their Collections</li>
+                <li>Communicate with Other Users Through Message Box</li>
+            </ul>
+            <p>Now, start searching and find yourself a new board game to play without buying it.</p>
+            <p>Plus, you get to get rid of your old game! Enjoy!</p>
+        </div>
+        <div class="col-md-6">
+            <img class="img-responsive pull-right" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRkgchCfF15GZlIaDVzwZSaKHzSOKHeY7NnuphqUN1KKZQslVmq" ng-style="{'border':'solid 2px black'}"alt="">
+        </div>
+    </div>
+    <!-- /.row -->
+
+    <hr>
+
+    <!-- Call to Action Section -->
+    <div class="well well-sm">
+        <div class="row">
+            <div class="col-md-2 pull-left text-center">
+                <i class="fa fa-thumbs-up fa-2x" aria-hidden="true"></i>
+            </div>
+            <div class="col-md-8">
+                <div class="text-bling"><strong><p>If you like Seattle Board Game Group, SHARE with your friends! Thank you for your support.</p></strong></div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <hr>
+    <!-- Footer -->
+    <footer>
+        <div class="row">
+            <div class="col-lg-12">
+                <p>Copyright &copy; Danni's Website 2016</p>
+            </div>
+        </div>
+    </footer>
+    <!-- /.container -->
+
+    <!--Begin navbar footer-->
+    <nav class="navbar navbar-inverse navbar-fixed-bottom">
+        <div class="container-fluid">
+            <div class="navbar-footer">
+                <p class="navbar-text pull-right">
+                    <a href="#/user" class="navbar-link">
+                        <span class="glyphicon glyphicon-user"></span></a>
+                    <a href="#/homepage/{{model.username}}" class="navbar-link icon-padding">
+                        <span class="glyphicon glyphicon-home"></span></a></p>
+
+            </div>
+        </div>
+    </nav>
+    <!--End navbar footer-->
+</div>

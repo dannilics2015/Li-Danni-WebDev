@@ -1,0 +1,155 @@
+<!--Begin navigation bar-->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand">Seattle Board Game Group</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#/homepage/{{model.username}}">Home</a></li>
+                <!--Begin Profile Dropdown-->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown">Profile <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#/user"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Account</a></li>
+                        <li>
+                            <a href="#/homepage/{{model.username}}/message"><i class="fa fa-envelope" aria-hidden="true"></i> Mailbox</a></li>
+                        <li>
+                            <a href="#/homepage/{{model.username}}/collection"><i class="fa fa-archive" aria-hidden="true"></i> Collections</a></li>
+                        <li><a href="#"><i class="fa fa-history" aria-hidden="true"></i> Trade History</a></li>
+                        <li><a ng-click="model.logout()"><i class="fa fa-sign-out" aria-hidden="true"></i> Sign Out</a></li>
+                    </ul>
+                </li>
+                <!--End Profile Dropdown-->
+                <!--Begin Search Dropdown-->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown">Search <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#/homepage/{{model.username}}/hot"><i class="fa fa-fire" aria-hidden="true"></i> Hot</a></li>
+                        <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i> Find a Game</a></li>
+                    </ul>
+                </li>
+                <!--End Search Dropdown-->
+                <!--Begin Trade Dropdown-->
+                <li class="dropdown active">
+                    <a class="dropdown-toggle" data-toggle="dropdown">Trades <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#/homepage/{{model.username}}/collection"><i class="fa fa-archive" aria-hidden="true"></i> See My Collections</a></li>
+                        <li><a href="#/homepage/{{model.username}}/search.all"><i class="fa fa-hdd-o" aria-hidden="true"></i> See All Collections</a></li>
+                        <li><a href="#/homepage/{{model.username}}/search"><i class="fa fa-search-plus" aria-hidden="true"></i> Search a Collection</a></li>
+                    </ul>
+                </li>
+                <!--End Trade Dropdown-->
+            </ul>
+        </div>
+    </div>
+</nav>
+<!--End navigation bar-->
+
+<!--Begin Landscape View/Collection List-->
+<div class="container-fluid collection-new-padding">
+    <!--Begin Page Heading/Breadcrumbs -->
+    <div class="row">
+        <div class="col-sm-4 hidden-xs">
+            <ol class="breadcrumb">
+                <li><a href="#/homepage/{{model.username}}">Home</a></li>
+                <li><a href="#/homepage/{{model.username}}/trade">Trade</a></li>
+                <li><a href="#/homepage/{{model.username}}/collection">My Collections</a></li>
+                <li class="active">New</li>
+            </ol>
+        </div>
+    </div>
+    <!-- /.row -->
+    <!--End Page Heading/Breadcrumbs -->
+
+
+    <!--Begin Landscape View/Collection List-->
+    <div class="row">
+        <div class="col-sm-4 hidden-xs">
+            <div class="blueFont container-fluid">
+                <ul class="list-group">
+                    <!--<li ng-repeat="page in model.pages" class="list-group-item">-->
+                    <li ng-repeat="collection in model.collections" class="list-group-item">
+                        <div class="listConf pull-right">
+                            <a href="#/homepage/{{model.username}}/collection/{{collection._id}}">
+                                <span class="glyphicon glyphicon-cog"></span></a>
+                        </div>
+                        <div>{{collection.name}}</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--End Landscape View/Collection List-->
+
+        <!--Begin vertical divider-->
+        <div class="verticle-line hidden-sm hidden-xs"></div>
+        <!--End vertical divider-->
+
+        <!--Beging Portrait View/Add Content Form-->
+        <div class="col-md-8 col-xs-12">
+            <form>
+                <form-group>
+                    <label for="name">Game Name</label>
+                    <input ng-model="model.collection.name" id="name" type="text", class="form-control" placeholder="Game Name"/>
+                </form-group>
+                <form-group>
+                    <label for="description" class="text-space">Description</label>
+                    <textarea rows="8" ng-model="model.coolection.description" id="description" class="form-control" placeholder="Game Description"></textarea>
+                </form-group>
+                <form-group>
+                    <label for="price" class="text-space">Original Price</label>
+                    <input ng-model="model.collection.price" id="price" type="text", class="form-control" placeholder="$22"/>
+                </form-group>
+                <form-group>
+                    <label for="condition" class="text-space">Condition</label>
+                    <input ng-model="model.collection.condition" id="condition" type="text", class="form-control" placeholder="used-like new"/>
+                </form-group>
+                <form-group>
+                    <label for="url" class="text-space">Game Image</label>
+                    <input ng-model="model.collection.url" id ="url" type="basic-url" class="form-control" placeholder="http://lorempixel.com/400/200/"/>
+                </form-group>
+            </form>
+            <!--Begin Button-->
+            <div class="top-space space">
+                <a ng-click="model.createCollection()" class="btn btn-success btn-default btn-block button-space" >Create</a>
+            </div>
+            <div class="space">
+                <a herf="#/user/{{model.uid}}/collection" class="btn btn-danger btn-default btn-block button-space" >Cancel</a>
+            </div>
+            <!--&lt;!&ndash;button doesn't work why?&ndash;&gt;-->
+            <!--<div class="space"><button herf="#/user/{{model.uid}}/collection" class="btn btn-primary btn-default btn-block button-space" >Go Back to My Collection</button></div>-->
+            <!--End Button-->
+            <!--End Portrait View/Add Content Form-->
+            <hr>
+            <!-- Footer -->
+            <footer>
+                <div class="row">
+                    <div class="col-md-8 col-xs-12">
+                        <p>Copyright &copy; Danni's Website 2016</p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+</div>
+
+<!--Begin Navbar footer-->
+<nav class="navbar navbar-inverse navbar-fixed-bottom">
+    <div class="container-fluid">
+        <div class="navbar-footer">
+            <p class="navbar-text pull-right">
+                <a href="#/user/{{model.uid}}" class="navbar-link">
+                    <span class="glyphicon glyphicon-user"></span></a></p>
+        </div>
+    </div>
+</nav>
+<!--End Navbar footer-->
+

@@ -1,0 +1,111 @@
+<!--Begin navigation bar-->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand">Seattle Board Game Group</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#/homepage/{{model.username}}">Home</a></li>
+                <!--Begin Profile Dropdown-->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown">Profile <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#/user"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Account</a></li>
+                        <li>
+                            <a href="#/homepage/{{model.username}}/message"><i class="fa fa-envelope" aria-hidden="true"></i> Mailbox</a></li>
+                        <li>
+                            <a href="#/homepage/{{model.username}}/collection"><i class="fa fa-archive" aria-hidden="true"></i> Collections</a></li>
+                        <li><a href="#"><i class="fa fa-history" aria-hidden="true"></i> Trade History</a></li>
+                        <li><a ng-click="model.logout()"><i class="fa fa-sign-out" aria-hidden="true"></i> Sign Out</a></li>
+                    </ul>
+                </li>
+                <!--End Profile Dropdown-->
+                <!--Begin Search Dropdown-->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown">Search <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#/homepage/{{model.username}}/hot"><i class="fa fa-fire" aria-hidden="true"></i> Hot</a></li>
+                        <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i> Find a Game</a></li>
+                    </ul>
+                </li>
+                <!--End Search Dropdown-->
+                <!--Begin Trade Dropdown-->
+                <li class="dropdown active">
+                    <a class="dropdown-toggle" data-toggle="dropdown">Trades <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#/homepage/{{model.username}}/collection"><i class="fa fa-archive" aria-hidden="true"></i> See My Collections</a></li>
+                        <li><a href="#/homepage/{{model.username}}/search/all"><i class="fa fa-hdd-o" aria-hidden="true"></i> See All Collections</a></li>
+                        <li><a href="#/homepage/{{model.username}}/search"><i class="fa fa-search-plus" aria-hidden="true"></i> Search a Collection</a></li>
+                    </ul>
+                </li>
+                <!--End Trade Dropdown-->
+            </ul>
+        </div>
+    </div>
+</nav>
+<!--End navigation bar-->
+
+
+<!-- Page Content -->
+<div class="container">
+    <!--Begin Page Heading/Breadcrumbs -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Search a game
+                <small></small>
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="#/homepage/{{model.username}}">Home</a></li>
+                <li><a href="#/homepage/{{model.username}}/trade">Trade</a></li>
+                <li class="active">Search</li>
+            </ol>
+        </div>
+    </div>
+    <!--End Page Heading/Breadcrumbs -->
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="input-group">
+                <input ng-model="name" type="text" class="form-control" placeholder="Search for...">
+                <span class="input-group-btn"><button ng-click="model.findAllCollectionsByName(name)" class="btn btn-default" type="button">Go!</button></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Begin Display Game Collection List-->
+<div class="container">
+    <table class="table">
+        <thead>
+        <tr>
+            <!--<th>Rank</th>-->
+            <!--<th>GameID</th>-->
+            <th>Username</th>
+            <th>BoardGame Name</th>
+            <th>Condition</th>
+            <th>BoardGame Image</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="collection in model.collections">
+            <td><a href="#/user/{{model.username}}/search/{{collection.username}}">{{collection.username}}</a></td>
+            <td>{{collection.name}}</a></td>
+            <td>{{collection.condition}}</a></td>
+            <td><img ng-src="{{collection.url}}" height="100px"/></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<!--End Display Game Collection List-->
+

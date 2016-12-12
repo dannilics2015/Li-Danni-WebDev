@@ -1,0 +1,14 @@
+ /*for homepage style self-defined*/
+.h1BgColor {
+    background-color: lightblue;
+    text-align: center;
+}
+
+.list_font {
+    font-size: medium;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+
+

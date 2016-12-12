@@ -1,0 +1,58 @@
+<!--Begin navigation bar-->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+            <div class="navbar-brand">Welcome to Seattle Board Game Corner</div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <p class="navbar-text pull-right">
+                <a href="#/about" class="navbar-link">
+                    <span class="glyphicon glyphicon-info-sign"></span> About</a></p>
+        </div>
+    </div>
+</nav>
+<!--End navigation bar-->
+
+<div class="container-fluid login-padding center">
+    <!--Begin error warming when login input has error-->
+    <div ng-show="model.error" class="alert alert-danger input-group margin-bottom-sm" role="alert">
+        {{model.error}}
+    </div>
+    <!--End error warming when login input has error-->
+
+    <div><h1>Login</h1></div>
+    <div class="input-group margin-bottom-sm space">
+        <!--Begin login form-->
+        <div class="input-group margin-bottom-sm space ">
+            <span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
+            <input type="text" ng-model="model.username" class="form-control" placeholder="Username"/>
+        </div>
+        <div class="input-group space">
+            <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+            <input type="password" ng-model="model.password" class="form-control" placeholder="Password"/>
+        </div>
+        <!--End login form-->
+        <!--Begin Button-->
+        <!--login button-->
+        <a ng-click="model.login(model.username, model.password)" class="btn btn-success btn-default btn-block">Login</a>
+        <!--register button-->
+        <a class="btn btn-primary btn-default btn-block" href="#/register"><i class="fa fa-user-plus fa-lg"></i> Register</a>
+        <!--Google login-->
+        <a href="/auth/google" class="btn btn-danger btn-block"><span class="fa fa-google fa-lg"></span> Google</a>
+        <!--End Button-->
+    </div>
+
+
+<hr>
+<!-- Footer -->
+<footer>
+    <div class="row">
+        <div class="col-lg-12">
+            <p>Copyright &copy; Danni's Website 2016</p>
+        </div>
+    </div>
+</footer>
+
+    <nav class="navbar navbar-inverse navbar-fixed-bottom">
+        <div class="container-fluid"></div>
+    </nav>
+</div>
+<!--End navigation bar-->

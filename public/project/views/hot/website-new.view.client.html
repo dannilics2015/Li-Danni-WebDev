@@ -1,0 +1,126 @@
+<!--Begin navigation bar-->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand">Seattle Board Game Group</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#/homepage/{{model.user.username}}">Home</a></li>
+                <!--Begin Profile Dropdown-->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown">Profile <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#/user"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Account</a></li>
+                        <li>
+                            <a href="#/homepage/{{model.user.username}}/message"><i class="fa fa-envelope" aria-hidden="true"></i> Mailbox</a></li>
+                        <li>
+                            <a href="#/homepage/{{model.user.username}}/collection"><i class="fa fa-archive" aria-hidden="true"></i> Collections</a></li>
+                        <li><a href="#"><i class="fa fa-history" aria-hidden="true"></i> Trade History</a></li>
+                        <li><a ng-click="model.logout()"><i class="fa fa-sign-out" aria-hidden="true"></i> Sign Out</a></li>
+                    </ul>
+                </li>
+                <!--End Profile Dropdown-->
+                <!--Begin Search Dropdown-->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown">Search <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#/homepage/{{model.user.username}}/hot"><i class="fa fa-fire" aria-hidden="true"></i> Hot</a></li>
+                        <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i> Find a Game</a></li>
+                    </ul>
+                </li>
+                <!--End Search Dropdown-->
+                <!--Begin Trade Dropdown-->
+                <li class="dropdown active">
+                    <a class="dropdown-toggle" data-toggle="dropdown">Trades <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#/homepage/{{model.user.username}}/collection"><i class="fa fa-archive" aria-hidden="true"></i> See My Collections</a></li>
+                        <li><a href="#/homepage/{{model.user.username}}/search/all"><i class="fa fa-hdd-o" aria-hidden="true"></i> See All Collections</a></li>
+                        <li><a href="#/homepage/{{model.user.username}}/search"><i class="fa fa-search-plus" aria-hidden="true"></i> Search a Collection</a></li>
+                    </ul>
+                </li>
+                <!--End Trade Dropdown-->
+            </ul>
+        </div>
+    </div>
+</nav>
+<!--End navigation bar-->
+
+
+<!-- Page Content -->
+<div class="container">
+    <!--Begin Page Heading/Breadcrumbs -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">50 Hottest Board Games
+                <small>Loading could take a minute. Click on Name for More Details</small></h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <ol class="breadcrumb">
+                <li><a href="#/homepage/{{model.user.username}}">Home</a>
+                </li>
+                <li class="active">Top 50 hot board games</li>
+            </ol>
+        </div>
+    </div>
+
+    <!--End Page Heading/Breadcrumbs -->
+
+    <!--Begin Display Game List-->
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th>Image</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="game in model.games">
+            <td>{{game.rank}}</td>
+            <td><a href="#/user/homepage/{{model.username}}/page/{{game.gameId}}">{{game.name}}</a></td>
+            <td><img ng-src="{{game.thumbnail}}" height="100px"/></td>
+        </tr>
+        </tbody>
+    </table>
+    <!--End Display Game List-->
+<hr>
+
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="row">
+            <div class="col-lg-12">
+                <p>Data Collected from BoardGameGeek API</p>
+                <p>Copyright &copy; Danni's Website 2016</p>
+            </div>
+        </div>
+    </footer>
+    <!-- /.container -->
+
+    <!--Begin navbar footer-->
+    <nav class="navbar navbar-inverse navbar-fixed-bottom">
+        <div class="container-fluid">
+            <div class="navbar-footer">
+                <p class="navbar-text pull-right">
+                    <a href="#/user" class="navbar-link">
+                        <span class="glyphicon glyphicon-user"></span></a>
+                    <a href="#/homepage/{{model.username}}" class="navbar-link icon-padding">
+                        <span class="glyphicon glyphicon-home"></span></a></p>
+
+            </div>
+        </div>
+    </nav>
+    <!--End navbar footer-->
+</div>

@@ -1,0 +1,126 @@
+<!--Begin navigation bar-->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand">Seattle Board Game Group</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#/homepage/{{model.username}}">Home</a></li>
+                <!--Begin Profile Dropdown-->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown">Profile <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#/user"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Account</a></li>
+                        <li>
+                            <a href="#/homepage/{{model.username}}/message"><i class="fa fa-envelope" aria-hidden="true"></i> Mailbox</a></li>
+                        <li>
+                            <a href="#/homepage/{{model.username}}/collection"><i class="fa fa-archive" aria-hidden="true"></i> Collections</a></li>
+                        <li><a href="#"><i class="fa fa-history" aria-hidden="true"></i> Trade History</a></li>
+                        <li><a ng-click="model.logout()"><i class="fa fa-sign-out" aria-hidden="true"></i> Sign Out</a></li>
+                    </ul>
+                </li>
+                <!--End Profile Dropdown-->
+                <!--Begin Search Dropdown-->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown">Search <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#/user/homepage/page"><i class="fa fa-fire" aria-hidden="true"></i> Hot</a></li>
+                        <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i> Find a Game</a></li>
+                    </ul>
+                </li>
+                <!--End Search Dropdown-->
+                <!--Begin Trade Dropdown-->
+                <li class="dropdown active">
+                    <a class="dropdown-toggle" data-toggle="dropdown">Trades <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#/homepage/{{model.username}}/collection"><i class="fa fa-archive" aria-hidden="true"></i> See My Collections</a></li>
+                        <li><a href="#/homepage/{{model.username}}/search/all"><i class="fa fa-hdd-o" aria-hidden="true"></i> See All Collections</a></li>
+                        <li><a href="#/homepage/{{model.username}}/search"><i class="fa fa-search-plus" aria-hidden="true"></i> Search a Collection</a></li>
+                    </ul>
+                </li>
+                <!--End Trade Dropdown-->
+            </ul>
+        </div>
+    </div>
+</nav>
+<!--End navigation bar-->
+
+<!-- Page Content -->
+<div class="container">
+
+    <!--Begin Page Heading/Breadcrumbs -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Trade
+                <small>board game with others for fun</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="#/homepage/{{model.username}}">Home</a>
+                </li>
+                <li class="active">trade</li>
+            </ol>
+        </div>
+    </div>
+    <!-- /.row -->
+    <!--End Page Heading/Breadcrumbs -->
+
+
+
+    <!-- Content Row -->
+    <div class="row">
+        <!-- Sidebar Column -->
+        <div class="col-md-3">
+            <div class="list-group">
+                <a href="#/homepage/{{model.username}}/collection" class="list-group-item">My Game Collection</a>
+                <a href="#/homepage/{{model.username}}/search/all" class="list-group-item">See Others' Collection</a>
+                <a href="#/homepage/{{model.username}}/search" class="list-group-item">Search a Board Game</a>
+            </div>
+        </div>
+        <!-- Content Column -->
+        <div class="col-md-9">
+            <h2>Board Game Trading</h2>
+            <p>In this page, you can navigate to My Game Collection check maintain your board game collection list,
+                including add a new board game, edit or delete a board game.</p>
+            <p>Moreover, you can also click on See Others' Collection and browse what our registered users have for board game choices. Once you find a board game that interests you, you
+                can send the user a message and start trading with them.</p>
+            <p>Last, if you already have a board game in mind, click Search a Board Game to find out if other users have it and trade with yours.</p>
+            </p>
+        </div>
+    </div>
+    <!-- /.row -->
+
+    <hr>
+    <!-- Footer -->
+    <footer>
+        <div class="row">
+            <div class="col-lg-12">
+                <p>Copyright &copy; Danni's Website 2016</p>
+            </div>
+        </div>
+    </footer>
+    <!-- /.container -->
+
+    <!--Begin navbar footer-->
+    <nav class="navbar navbar-inverse navbar-fixed-bottom">
+        <div class="container-fluid">
+            <div class="navbar-footer">
+                <p class="navbar-text pull-right">
+                    <a href="#/user" class="navbar-link">
+                        <span class="glyphicon glyphicon-user"></span></a>
+                    <a href="#/homepage/{{model.username}}" class="navbar-link icon-padding">
+                        <span class="glyphicon glyphicon-home"></span></a></p>
+
+            </div>
+        </div>
+    </nav>
+    <!--End navbar footer-->
+</div>
